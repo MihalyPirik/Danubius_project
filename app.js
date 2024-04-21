@@ -1,16 +1,18 @@
-const express = require('express');
-require('dotenv').config();
+import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
+import AuthRouter from './routes/authRoutes.js';
+import UserRouter from './routes/userRoutes.js';
+
+dotenv.config();
+
 mongoose.set("strictQuery", true); // ellenőrzi a lekérdezéseket, hogy a sémának megfelelnek-e
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
 const port = process.env.PORT;
-
-const AuthRouter = require('./routes/authRoutes');
-const UserRouter = require('./routes/userRoutes');
 
 database.on('error', (error) => {
   console.log(error);
