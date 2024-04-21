@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
+const port = process.env.PORT;
+
+const UserRouter = require('./routes/userRoutes');
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
@@ -14,14 +17,11 @@ database.once('connected', () => {
   console.log('Database Connected');
 });
 
-const port = 3000;
-
 const app = express();
 app.use(express.json());
 
-const routes = require('./routes/routes');
-app.use('/api/datas', routes);
+app.use('/api/user', UserRouter);
 
-app.listen(3000, () => {
-  console.log(`Server Started at ${3000}`);
+app.listen(port, () => {
+  console.log(`Server Started at ${port}`);
 });

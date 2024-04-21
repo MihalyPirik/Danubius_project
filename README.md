@@ -48,9 +48,9 @@ Az alkalmazás moduláris és RESTful API-kra épülő architektúrát fog köve
 A főbb végpontokat és az azokhoz tartozó funkcionalitásokat:
 
 - `/api/auth`: Felhasználók bejelentkezése és regisztrációja.
-- `/api/books`: Könyvek listázása, hozzáadása és módosítása.
+- `/api/books`: Könyvek listázása, hozzáadása, módosítása és törlése.
 - `/api/user`: A felhasználó a saját adatait tudja kezelni.
-- `/api/users`: Felhasználók listázása és kezelése (csak adminisztrátoroknak).
+- `/api/user/admin`: Felhasználók és a könyvek kezelése (csak adminisztrátoroknak).
 
 ## 7. Tesztelés
 
