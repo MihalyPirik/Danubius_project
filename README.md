@@ -15,7 +15,7 @@ A projekt célja egy olyan backend szerver kialakítása, amely lehetővé teszi
 
 ### Kiadók:
 
-- Új könyv hozzáadása: A kiadó új könyveket tudnak hozzáadni a rendszerhez.
+- Új könyv hozzáadása: A kiadók új könyveket tudnak hozzáadni a rendszerhez.
 
 ### Adminisztrátorok:
 
