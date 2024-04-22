@@ -1,17 +1,11 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-    firstName: {
+    name: {
         type: String,
-        required: [true, "A keresztnév megadása kötelező!"],
+        required: [true, "A név megadása kötelező!"],
         trim: true,
-        maxlength: [100, "A keresztnév nem lehet több mint 100 karakter"]
-    },
-    lastName: {
-        type: String,
-        required: [true, "A vezetéknév megadása kötelező!"],
-        trim: true,
-        maxlength: [100, "A vezetéknév nem lehet több mint 100 karakter"]
+        maxlength: [100, "A név nem lehet több mint 100 karakter"]
     },
     email: {
         type: String,
