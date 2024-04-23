@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { getUser, updateUser, deleteUser } from "../controllers/userController.js";
+import { getUser, updateUser, deleteUser } from '../controllers/userController.js';
 
 const UserRouter = Router();
 
 UserRouter
-  .route("/:id")
+  .route('/:id')
   .get(getUser)
   .put(updateUser)
   .delete(deleteUser);

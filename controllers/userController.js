@@ -2,7 +2,7 @@
 // @route  GET /api/user/:id
 // @access Private
 export const getUser = (req, res, next) => {
-  res.status(200).json({ success: true, msg: `Get user ${req.params.id}` });
+  res.status(200).json({ success: true, msg: `Get user ${req.params.id}`, test: req.test });
 };
 // @desc   Update user
 // @route  PUT /api/user/:id

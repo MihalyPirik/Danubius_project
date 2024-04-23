@@ -45,7 +45,7 @@ Az alkalmazás moduláris és RESTful API-kra épülő architektúrát fog köve
 
 ## 6. Végpontok
 
-A főbb végpontokat és az azokhoz tartozó funkcionalitásokat:
+A főbb végpontokat és az azokhoz tartozó funkcionalitások:
 
 - `/api/auth`: Felhasználók bejelentkezése és regisztrációja.
 - `/api/books`: Könyvek listázása, hozzáadása, módosítása és törlése.
@@ -56,7 +56,7 @@ A főbb végpontokat és az azokhoz tartozó funkcionalitásokat:
 
 ## 7. Tesztelés
 
-Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesznek ellátva.
+Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva.
 
 ## 8. Felhasználói Jogosultságok
 
