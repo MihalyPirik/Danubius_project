@@ -1,4 +1,5 @@
-import BookModel from '../models/BookModel.js'
+import BookModel from '../models/BookModel.js';
+import { ErrorResponse } from '../utils/errorResponse.js';
 
 // @desc   Get all books
 // @route  GET /api/books
@@ -8,7 +9,7 @@ export const getBooks = async (req, res, next) => {
     const books = await BookModel.find()
     res.status(200).json({ success: true, count: books.length, data: books });
   } catch (error) {
-    res.status(400).json({ success: false });
+    next(error);
   }
 };
 // @desc   Get single book
@@ -22,7 +23,7 @@ export const getBook = async (req, res, next) => {
     }
     res.status(200).json({ success: true, data: book });
   } catch (error) {
-    res.status(400).json({ success: false });
+    next(new ErrorResponse(`Book id (${req.params.id}) not correct`, 404));
   }
 };
 // @desc   Create new book
@@ -34,7 +35,7 @@ export const createBook = async (req, res, next) => {
     res.status(201).json({ success: true, data: book });
   } catch (error) {
     console.log(error.message);
-    res.status(400).json({ success: false });
+    next(error)
   }
 };
 // @desc   Update book
@@ -51,7 +52,7 @@ export const updateBook = async (req, res, next) => {
     }
     res.status(200).json({ success: true, data: book });
   } catch (error) {
-    res.status(400).json({ success: false });
+    next(error)
   }
 };
 // @desc   Delete book
@@ -65,6 +66,6 @@ export const deleteBook = async (req, res, next) => {
     }
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
-    res.status(400).json({ success: false });
+    next(error)
   }
 };

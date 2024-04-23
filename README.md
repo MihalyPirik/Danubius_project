@@ -63,3 +63,25 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - **Felhasználók**: Vásárlás.
 - **Kiadók**: Új könyvek hozzáadása.
 - **Adminisztrátorok**: Teljes jogosultság az alkalmazásban való módosításokra és kezelésre.
+
+## 9. A Fejlesztéshez Használt Források
+
+https://mongoosejs.com/docs/guides.html
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+https://github.com/motdotla/dotenv
+https://www.npmjs.com/package/morgan
+https://expressjs.com/en/guide/error-handling.html
+
+# A Projekt Indítása
+
+## NPM Csomagok Telepítése
+
+```
+npm install
+```
+
+## Projekt Indítása
+
+```
+npm start
+```
