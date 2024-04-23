@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const BookSchema = new mongoose.Schema({
-    Author: {
+    author: {
         type: String,
         required: [true, 'A szerző megadása kötelező!'],
         trim: true,
