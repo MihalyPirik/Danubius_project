@@ -1,4 +1,4 @@
-import { ErrorResponse } from "../utils/errorResponse.js";
+import { ErrorResponse } from '../utils/errorResponse.js';
 
 export const errorHandler = (err, req, res, next) => {
   console.log(err.stack); // a hibával kapcsolatos információk megjelenítése

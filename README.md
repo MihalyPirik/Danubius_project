@@ -66,11 +66,11 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 
 ## 9. A Fejlesztéshez Használt Források
 
-https://mongoosejs.com/docs/guides.html
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-https://github.com/motdotla/dotenv
-https://www.npmjs.com/package/morgan
-https://expressjs.com/en/guide/error-handling.html
+- https://mongoosejs.com/docs/guides.html
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+- https://github.com/motdotla/dotenv
+- https://www.npmjs.com/package/morgan
+- https://expressjs.com/en/guide/error-handling.html
 
 # A Projekt Indítása
 

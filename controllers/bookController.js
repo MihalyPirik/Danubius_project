@@ -6,7 +6,15 @@ import { ErrorResponse } from '../utils/errorResponse.js';
 // @access Public
 export const getBooks = async (req, res, next) => {
   try {
-    const books = await BookModel.find()
+    let query;
+    let queryString = JSON.stringify(req.query);
+
+    queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`); // a queryben lévő operátorokat $ operátorokra cseréli
+
+    query = BookModel.find(JSON.parse(queryString));
+
+    const books = await query;
+
     res.status(200).json({ success: true, count: books.length, data: books });
   } catch (error) {
     next(error);
@@ -35,7 +43,7 @@ export const createBook = async (req, res, next) => {
     res.status(201).json({ success: true, data: book });
   } catch (error) {
     console.log(error.message);
-    next(error)
+    next(error);
   }
 };
 // @desc   Update book
@@ -52,7 +60,7 @@ export const updateBook = async (req, res, next) => {
     }
     res.status(200).json({ success: true, data: book });
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 // @desc   Delete book
@@ -66,6 +74,6 @@ export const deleteBook = async (req, res, next) => {
     }
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
