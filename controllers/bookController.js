@@ -12,6 +12,17 @@ export const getBooks = async (req, res, next) => {
     queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`); // a queryben lévő operátorokat $ operátorokra cseréli
 
     query = BookModel.find(JSON.parse(queryString));
+    if (req.query.select) {
+      const fields = req.query.select.split(',').join(' ');
+      query = query.select(fields);
+    }
+
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      query = query.sort(sortBy);
+    } else {
+      query = query.sort('-createdAt'); // default
+    }
 
     const books = await query;
 
@@ -42,7 +53,6 @@ export const createBook = async (req, res, next) => {
     const book = await BookModel.create(req.body);
     res.status(201).json({ success: true, data: book });
   } catch (error) {
-    console.log(error.message);
     next(error);
   }
 };

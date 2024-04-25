@@ -19,7 +19,7 @@ const BookSchema = new mongoose.Schema({
         unique: [true, 'Ez az ISBN szám már szerepel az adatbázisban!'],
         validate: {
             validator: function (value) {
-                return /^\d{13}$/.test(value) || /^\d{3}-\d{10}$/.test(value); // 13 számjegy vagy 978 vagy 979 előtaggal
+                return /^\d{13}$/.test(value) || /^\d{3}-\d{10}$/.test(value); // 13 számjegy vagy 3 számjegy - 10 számjegy
             },
             message: 'Az ISBN formátuma érvénytelen!'
         }
