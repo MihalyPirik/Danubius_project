@@ -24,9 +24,29 @@ export const getBooks = async (req, res, next) => {
       query = query.sort('-createdAt'); // default
     }
 
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const total = await BookModel.countDocuments();
+
+    query = query.skip(startIndex).limit(limit);
+    const pagination = {};
+    if (startIndex > 0) {
+      pagination.prev = {
+        page: page - 1,
+        limit,
+      };
+    };
+    if (endIndex < total) {
+      pagination.next = {
+        page: page + 1,
+        limit,
+      };
+    };
     const books = await query;
 
-    res.status(200).json({ success: true, count: books.length, data: books });
+    res.status(200).json({ success: true, count: books.length, pagination, data: books });
   } catch (error) {
     next(error);
   }
