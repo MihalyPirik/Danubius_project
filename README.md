@@ -71,9 +71,11 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - https://github.com/motdotla/dotenv
 - https://www.npmjs.com/package/morgan
 - https://expressjs.com/en/guide/error-handling.html
+- https://www.mongodb.com/docs/manual
 - https://www.educative.io/answers/session-based-authentication-vs-token-based-authentication
 - https://jwt.io
 - https://github.com/auth0/node-jsonwebtoken
+- https://www.npmjs.com/package/cookie-parser
 
 # A Projekt Indítása
 
