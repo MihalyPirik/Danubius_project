@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
 
 import AuthRouter from './routes/authRoutes.js';
 import UserRouter from './routes/userRoutes.js';
@@ -27,6 +28,7 @@ database.once('connected', () => {
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan('dev')) // naplózási middleware
 
 app.use('/api/auth', AuthRouter);

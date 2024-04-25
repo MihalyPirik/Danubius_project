@@ -15,10 +15,7 @@ export const createUser = async (req, res, next) => {
       role
     });
 
-    // token létrehozása
-    const token = user.getSignedToken();
-
-    res.status(201).json({ success: true, token });
+    sendTokenResponse(user, 200, res);
   } catch (error) {
     res.status(400).json({ success: false, msg: error.message });
   };
@@ -46,11 +43,20 @@ export const loginUser = async (req, res, next) => {
       return next(new ErrorResponse('Érvénytelen email cím vagy jelszó!', 401));
     }
 
-    const token = user.getSignedToken();
-
-    res.status(200).json({ success: true, token });
-
+    sendTokenResponse(user, 200, res);
   } catch (error) {
     res.status(400).json({ success: false, msg: error.message });
   }
+};
+
+const sendTokenResponse = (user, statusCode, res) => {
+  const token = user.getSignedToken();
+
+  const options = {
+    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+    httpOnly: true,
+    secure: true
+  };
+
+  res.status(statusCode).cookie('token', token, options).json({ success: true, token });
 };
