@@ -1,5 +1,5 @@
-import UserModel from "../models/UserModel.js";
-import { ErrorResponse } from "../utils/errorResponse.js";
+import UserModel from '../models/UserModel.js';
+import { ErrorResponse } from '../utils/errorResponse.js';
 
 // @desc   Create new user
 // @route  Post /api/auth/registration
@@ -49,7 +49,7 @@ export const loginUser = async (req, res, next) => {
   }
 };
 
-const sendTokenResponse = (user, statusCode, res) => {
+export const sendTokenResponse = (user, statusCode, res) => {
   const token = user.getSignedToken();
 
   const options = {

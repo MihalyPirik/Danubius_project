@@ -141,7 +141,7 @@ export const deleteBook = async (req, res, next) => {
   }
 };
 
-const tokenVerify = (authorization) => {
+export const tokenVerify = (authorization) => {
   const token = authorization;
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET);

@@ -1,0 +1,377 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Danubius",
+    "collectionId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+    "dateExported": "2024-04-26T15:24:33.439Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "b5e7c529-9369-4b18-bd14-cac29d5205ea",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-04-26T10:19:37.705Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "book",
+            "containerId": "",
+            "created": "2024-04-26T10:19:47.705Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-04-26T10:19:54.186Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "8c79b7a5-0a2a-44aa-9943-99a4264e64e4",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "getBooks",
+            "url": "http://localhost:3000/api/books",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-26T10:18:34.522Z",
+            "modified": "2024-04-26T12:16:41.613Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ]
+        },
+        {
+            "_id": "133de005-ce47-4be5-a98d-90852ee4edac",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "b5e7c529-9369-4b18-bd14-cac29d5205ea",
+            "name": "registration",
+            "url": "http://localhost:3000/api/auth/registration",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-04-26T10:20:08.508Z",
+            "modified": "2024-04-26T14:45:52.735Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"misi\",\n    \"email\": \"misi@misi.hu\",\n    \"role\": \"publisher\",\n    \"password\": \"12345678\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "0c101527-5fdc-48d7-8dfe-d8ca99171b1d",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
+            "name": "getUser",
+            "url": "http://localhost:3000/api/user/662b80700925ad476b568df5",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-04-26T13:39:28.599Z",
+            "modified": "2024-04-26T14:57:03.746Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiZjc2NTRkZGYyZTU1YmZmZTM3MCIsImlhdCI6MTcxNDE0MzA5NCwiZXhwIjoxNzE2NzM1MDk0fQ.vNsdOEiN4OIif7z-dFrqb28DEOmelJdcr1HsMbV-aEM"
+            }
+        },
+        {
+            "_id": "b1f9413e-087e-49ec-a082-0b52daebb1d9",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "getBook",
+            "url": "http://localhost:3000/api/books/662b8e9090d98bd041915198",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-04-26T12:13:55.430Z",
+            "modified": "2024-04-26T12:14:16.667Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ]
+        },
+        {
+            "_id": "1faae775-e6c0-497d-882b-6feb69d3a442",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
+            "name": "deleteUser",
+            "url": "http://localhost:3000/api/user/662b80650925ad476b568df3",
+            "method": "DELETE",
+            "sortNum": 15000,
+            "created": "2024-04-26T15:22:37.926Z",
+            "modified": "2024-04-26T15:23:00.476Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiZjc2NTRkZGYyZTU1YmZmZTM3MCIsImlhdCI6MTcxNDE0MzA5NCwiZXhwIjoxNzE2NzM1MDk0fQ.vNsdOEiN4OIif7z-dFrqb28DEOmelJdcr1HsMbV-aEM"
+            }
+        },
+        {
+            "_id": "8ca0cbde-5638-4574-a879-1a7e6ca91095",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "b5e7c529-9369-4b18-bd14-cac29d5205ea",
+            "name": "login",
+            "url": "http://localhost:3000/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-04-26T10:25:18.696Z",
+            "modified": "2024-04-26T15:19:06.278Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"misi@misi.hu\",\n    \"password\": \"12345678\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "50df4d47-513e-40c1-ae75-01a25fc7d315",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "putBook",
+            "url": "http://localhost:3000/api/books/662b9bafeb7eec6d344fd4c0",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-04-26T10:25:52.459Z",
+            "modified": "2024-04-26T12:19:53.677Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450003\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmI4MDgwMDkyNWFkNDc2YjU2OGRmNyIsImlhdCI6MTcxNDEyODM5MCwiZXhwIjoxNzE2NzIwMzkwfQ.6LNVPSpMsCOw9I5nrcpFp_PtdEPK8gBd37owZnHwKYg"
+            }
+        },
+        {
+            "_id": "79b593ad-0a66-4b6b-91a7-425ad98272cf",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
+            "name": "updateUser",
+            "url": "http://localhost:3000/api/user/662bbf7654ddf2e55bffe370",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-04-26T14:39:22.299Z",
+            "modified": "2024-04-26T14:55:45.888Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"name\" : \"misi\",\n    \"email\" : \"misi@misi.hu\",\n    \"role\": \"user\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiZjc2NTRkZGYyZTU1YmZmZTM3MCIsImlhdCI6MTcxNDE0MzA5NCwiZXhwIjoxNzE2NzM1MDk0fQ.vNsdOEiN4OIif7z-dFrqb28DEOmelJdcr1HsMbV-aEM"
+            }
+        },
+        {
+            "_id": "ffbae430-379e-489c-8f2c-1a9b04836d78",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "deleteBook",
+            "url": "http://localhost:3000/api/books/662b87995421aa05fd99e0d3",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-04-26T11:23:26.154Z",
+            "modified": "2024-04-26T12:21:19.590Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmI4MDgwMDkyNWFkNDc2YjU2OGRmNyIsImlhdCI6MTcxNDEyODM5MCwiZXhwIjoxNzE2NzIwMzkwfQ.6LNVPSpMsCOw9I5nrcpFp_PtdEPK8gBd37owZnHwKYg"
+            }
+        },
+        {
+            "_id": "048ec88b-2c1c-4159-9918-eefd67ab5541",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
+            "name": "postBook",
+            "url": "http://localhost:3000/api/books",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-26T11:25:45.814Z",
+            "modified": "2024-04-26T15:00:54.874Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450004\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiZjc2NTRkZGYyZTU1YmZmZTM3MCIsImlhdCI6MTcxNDE0MzA5NCwiZXhwIjoxNzE2NzM1MDk0fQ.vNsdOEiN4OIif7z-dFrqb28DEOmelJdcr1HsMbV-aEM"
+            }
+        },
+        {
+            "_id": "6fe14d64-803e-46d3-934d-a47a06fcd91a",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
+            "name": "updatePassword",
+            "url": "http://localhost:3000/api/user/password/662bbf7654ddf2e55bffe370",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-04-26T15:03:55.435Z",
+            "modified": "2024-04-26T15:19:01.471Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"currentPassword\": \"12345678\",\n   \"newPassword\": \"12345678\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmJiZjc2NTRkZGYyZTU1YmZmZTM3MCIsImlhdCI6MTcxNDE0MzA5NCwiZXhwIjoxNzE2NzM1MDk0fQ.vNsdOEiN4OIif7z-dFrqb28DEOmelJdcr1HsMbV-aEM"
+            }
+        }
+    ],
+    "ref": "06QlXYK2SUyNRvn_0AMguR0tuswym7EU8nExbqGHFCVChM35zAi6g5Jg2f_s1eOhkU8ANq5_GUDtQZ18yadqfA"
+}
