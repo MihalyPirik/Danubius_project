@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 import BookModel from '../models/BookModel.js';
 import { ErrorResponse } from '../utils/errorResponse.js';
 
@@ -58,11 +60,11 @@ export const getBook = async (req, res, next) => {
   try {
     const book = await BookModel.findById(req.params.id);
     if (!book) {
-      return res.status(400).json({ success: false, msg: 'Not found' });
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
     }
     res.status(200).json({ success: true, data: book });
   } catch (error) {
-    next(new ErrorResponse(`Book id (${req.params.id}) not correct`, 404));
+    next(new ErrorResponse(`A könyv id nem megfelelő: (${req.params.id})!`, 404));
   }
 };
 // @desc   Create new book
@@ -70,7 +72,14 @@ export const getBook = async (req, res, next) => {
 // @access Private
 export const createBook = async (req, res, next) => {
   try {
-    req.body.user = req.user.id;
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+
+    if ((req.body.user && req.body.user.toString() !== decoded.id) && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak magadnak hozhatsz létre könyvet!', 401));
+    };
+
+    req.body.user = decoded.id;
+
     const book = await BookModel.create(req.body);
     res.status(201).json({ success: true, data: book });
   } catch (error) {
@@ -82,14 +91,20 @@ export const createBook = async (req, res, next) => {
 // @access Private
 export const updateBook = async (req, res, next) => {
   try {
-    req.body.user = req.user.id;
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+
+    if ((req.body.user && req.body.user.toString() !== decoded.id) && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak a saját könyveidet módosíthatod!', 401));
+    };
+
+    req.body.user = decoded.id;
 
     const bookUser = await BookModel.findById(req.params.id)
     if (!bookUser) {
-      return res.status(400).json({ success: false, msg: 'Not found' });
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
     }
 
-    if (bookUser.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    if (bookUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Csak a könyv tulajdonosa frissítheti a könyvet!', 401));
     };
 
@@ -97,9 +112,7 @@ export const updateBook = async (req, res, next) => {
       new: true, // A frissített adatokat kapjuk vissza
       runValidators: true, // Ellenőrzi a frissített adatokat a modell
     });
-    if (!book) {
-      return res.status(400).json({ success: false, msg: 'Not found' });
-    }
+
     res.status(200).json({ success: true, data: book });
   } catch (error) {
     next(error);
@@ -110,23 +123,27 @@ export const updateBook = async (req, res, next) => {
 // @access Private
 export const deleteBook = async (req, res, next) => {
   try {
-    req.body.user = req.user.id;
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
     const bookUser = await BookModel.findById(req.params.id)
     if (!bookUser) {
-      return res.status(400).json({ success: false, msg: 'Not found' });
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
     }
 
-    if (bookUser.user.toString() !== req.user.id && req.user.role !== 'admin') {
+    if (bookUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Csak a könyv tulajdonosa törölheti a könyvet!', 401));
     };
 
-    const book = await BookModel.findByIdAndDelete(req.params.id);
-    if (!book) {
-      return res.status(400).json({ success: false, msg: 'Not found' });
-    }
+    await BookModel.findByIdAndDelete(req.params.id);
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     next(error);
   }
 };
+
+const tokenVerify = (authorization) => {
+  const token = authorization;
+
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  return decoded;
+}
