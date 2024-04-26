@@ -41,6 +41,11 @@ const BookSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'A könyvnek kötelező megadni az árát!']
     },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'UserModel',
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now

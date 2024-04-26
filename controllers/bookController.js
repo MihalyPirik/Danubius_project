@@ -70,6 +70,7 @@ export const getBook = async (req, res, next) => {
 // @access Private
 export const createBook = async (req, res, next) => {
   try {
+    req.body.user = req.user.id;
     const book = await BookModel.create(req.body);
     res.status(201).json({ success: true, data: book });
   } catch (error) {
@@ -81,6 +82,17 @@ export const createBook = async (req, res, next) => {
 // @access Private
 export const updateBook = async (req, res, next) => {
   try {
+    req.body.user = req.user.id;
+
+    const bookUser = await BookModel.findById(req.params.id)
+    if (!bookUser) {
+      return res.status(400).json({ success: false, msg: 'Not found' });
+    }
+
+    if (bookUser.user.toString() !== req.user.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak a könyv tulajdonosa frissítheti a könyvet!', 401));
+    };
+
     const book = await BookModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true, // A frissített adatokat kapjuk vissza
       runValidators: true, // Ellenőrzi a frissített adatokat a modell
@@ -98,6 +110,17 @@ export const updateBook = async (req, res, next) => {
 // @access Private
 export const deleteBook = async (req, res, next) => {
   try {
+    req.body.user = req.user.id;
+
+    const bookUser = await BookModel.findById(req.params.id)
+    if (!bookUser) {
+      return res.status(400).json({ success: false, msg: 'Not found' });
+    }
+
+    if (bookUser.user.toString() !== req.user.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak a könyv tulajdonosa törölheti a könyvet!', 401));
+    };
+
     const book = await BookModel.findByIdAndDelete(req.params.id);
     if (!book) {
       return res.status(400).json({ success: false, msg: 'Not found' });
