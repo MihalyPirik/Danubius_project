@@ -53,6 +53,13 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// A felhasználó törlésével töröljük a hozzá tartozó könyveket is
+UserSchema.pre('findByIdAndDelete', async function(next) {
+    await this.model('BookModel').deleteMany({ user: this._id });
+    next();
+    console.log(1);
+});
+
 const UserModel = mongoose.model('UserModel', UserSchema, 'users');
 
 export default UserModel;

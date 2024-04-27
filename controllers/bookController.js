@@ -93,10 +93,6 @@ export const updateBook = async (req, res, next) => {
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
-    if ((req.body.user && req.body.user.toString() !== decoded.id) && req.user.role !== 'admin') {
-      return next(new ErrorResponse('Csak a saját könyveidet módosíthatod!', 401));
-    };
-
     req.body.user = decoded.id;
 
     const bookUser = await BookModel.findById(req.params.id)

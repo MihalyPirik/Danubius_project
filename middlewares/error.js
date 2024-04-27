@@ -9,7 +9,7 @@ export const errorHandler = (err, req, res, next) => {
   }
 
   res.status(err.statusCode || 500).json({
-    succes: false,
+    success: false,
     error: err.message || 'Server Error'
   });
 };

@@ -43,7 +43,6 @@ const BookSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.ObjectId,
-        ref: 'UserModel',
         required: true
     },
     createdAt: {

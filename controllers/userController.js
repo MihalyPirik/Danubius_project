@@ -1,4 +1,5 @@
 import UserModel from '../models/UserModel.js';
+import BookModel from '../models/BookModel.js';
 import { ErrorResponse } from '../utils/errorResponse.js';
 import { tokenVerify } from './bookController.js';
 import { sendTokenResponse } from './authController.js';
@@ -8,17 +9,43 @@ import { sendTokenResponse } from './authController.js';
 // @access Private
 export const getUser = async (req, res, next) => {
   try {
-    const user = await UserModel.findById(req.params.id);
-    if (!user) {
-      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
-    };
-
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
     };
 
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
+    };
+
     res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    next(error);
+  }
+};
+// @desc   Get user books
+// @route  GET /api/user/:id/books
+// @access Private
+export const getUserBooks = async (req, res, next) => {
+  try {
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+    if (req.params.id !== decoded.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
+    };
+
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
+    };
+
+    const books = await BookModel.find({ user: user._id });
+
+    if (books.length !== 0) {
+      res.status(200).json({ success: true, count: books.length, data: books });
+    } else {
+      return next(new ErrorResponse(`Ennek a felhasználónak (${req.params.id}) nincsen könyve az adatbázisban!`, 404));
+    };
   } catch (error) {
     next(error);
   }
@@ -28,14 +55,14 @@ export const getUser = async (req, res, next) => {
 // @access Private
 export const updateUser = async (req, res, next) => {
   try {
-    const userCheck = await UserModel.findById(req.params.id);
-    if (!userCheck) {
-      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
-    };
-
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
+    };
+
+    const userCheck = await UserModel.findById(req.params.id);
+    if (!userCheck) {
+      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
     };
 
     const fieldsToUpdate = {
@@ -58,6 +85,11 @@ export const updateUser = async (req, res, next) => {
 // @access Private
 export const updatePassword = async (req, res, next) => {
   try {
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+    if (req.params.id !== decoded.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
+    };
+
     const user = await UserModel.findById(req.params.id).select('+password');
     if (!user) {
       return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
@@ -80,14 +112,14 @@ export const updatePassword = async (req, res, next) => {
 // @access Private
 export const deleteUser = async (req, res, next) => {
   try {
-    const userCheck = await UserModel.findById(req.params.id);
-    if (!userCheck) {
-      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
-    };
-
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
+    };
+
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
     };
 
     await UserModel.findByIdAndDelete(req.params.id);
