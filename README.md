@@ -75,6 +75,11 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - https://jwt.io
 - https://github.com/auth0/node-jsonwebtoken
 - https://www.npmjs.com/package/cookie-parser
+- https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb
+- https://www.npmjs.com/package/express-mongo-sanitize
+- helmetjs.github.io
+- https://www.npmjs.com/package/express-rate-limit
+- https://expressjs.com/en/resources/middleware/cors.html
 
 # A Projekt Indítása
 

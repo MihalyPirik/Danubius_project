@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+import mongoSanitize from 'express-mongo-sanitize';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import cors from 'cors';
 
 import AuthRouter from './routes/authRoutes.js';
 import UserRouter from './routes/userRoutes.js';
@@ -29,6 +33,16 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev')) // naplózási middleware
+app.use(mongoSanitize());
+app.use(helmet({
+  crossOriginResourcePolicy: false
+}));
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 10 perc
+  max: 100
+});
+app.use(limiter);
+app.use(cors());
 
 app.use('/api/auth', AuthRouter);
 app.use('/api/user', UserRouter);

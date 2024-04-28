@@ -122,7 +122,7 @@ export const deleteUser = async (req, res, next) => {
       return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
     };
 
-    await user.deleteOne();
+    await user.remove(); // nem jó
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     next(error);
