@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
+import BookModel from './BookModel.js';
+
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -27,8 +29,6 @@ const UserSchema = new mongoose.Schema({
         minlength: 8,
         select: false // nem adja vissza lekéréseknél
     },
-    resetPasswordToken: String,
-    resetPasswordExpire: Date,
     createdAt: {
         type: Date,
         default: Date.now
@@ -54,10 +54,9 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 // A felhasználó törlésével töröljük a hozzá tartozó könyveket is
-UserSchema.pre('findByIdAndDelete', async function(next) {
-    await this.model('BookModel').deleteMany({ user: this._id });
+UserSchema.pre('deleteOne', async function(next) {
+    await BookModel.deleteMany({ user: this._id });// nem jó
     next();
-    console.log(1);
 });
 
 const UserModel = mongoose.model('UserModel', UserSchema, 'users');

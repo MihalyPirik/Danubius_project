@@ -117,12 +117,12 @@ export const deleteUser = async (req, res, next) => {
       return next(new ErrorResponse('Nincs jogosultságod erre!', 401));
     };
 
-    const user = await UserModel.findById(req.params.id);
+    const user = await UserModel.findById(req.params.id).select('+password');;
     if (!user) {
       return next(new ErrorResponse('Nincs ilyen felhasználó!', 400));
     };
 
-    await UserModel.findByIdAndDelete(req.params.id);
+    await user.deleteOne();
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     next(error);
