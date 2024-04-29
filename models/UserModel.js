@@ -1,3 +1,4 @@
+import BookModel from './BookModel.js';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -52,8 +53,8 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 // A felhasználó törlésével töröljük a hozzá tartozó könyveket is
-UserSchema.pre('remove', async function(next) {
-    await this.model('BookModel').deleteMany({ user: this._id });// nem jó
+UserSchema.pre('deleteOne', { document: true }, async function (next) {
+    await BookModel.deleteMany({ user: this._id });
     next();
 });
 
