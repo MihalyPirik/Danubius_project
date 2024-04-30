@@ -15,40 +15,41 @@ import { errorHandler } from './middlewares/error.js';
 
 dotenv.config();
 
-mongoose.set('strictQuery', true); // ellenőrzi a lekérdezéseket, hogy a sémának megfelelnek-e
+mongoose.set('strictQuery', true);
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
-const port = process.env.PORT;
+const createApp = () => {
+  const app = express();
 
-database.on('error', (error) => {
-  console.log(error);
-});
-database.once('connected', () => {
-  console.log('Database Connected');
+  database.on('error', (error) => {
+    console.log(error);
+  });
+  database.once('connected', () => {
+    console.log('Database Connected');
+  });
+
+  app.use(express.json());
+  app.use(cookieParser());
+  app.use(morgan('dev'));
+  app.use(mongoSanitize());
+  app.use(helmet({ crossOriginResourcePolicy: false }));
+  const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+  app.use(limiter);
+  app.use(cors());
+
+  app.use('/api/auth', AuthRouter);
+  app.use('/api/user', UserRouter);
+  app.use('/api/books', BookRouter);
+  app.use(errorHandler);
+
+  return app;
+};
+
+const app = createApp();
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Listening on port ${process.env.PORT || 3001}`);
 });
 
-const app = express();
-app.use(express.json());
-app.use(cookieParser());
-app.use(morgan('dev')) // naplózási middleware
-app.use(mongoSanitize());
-app.use(helmet({
-  crossOriginResourcePolicy: false
-}));
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 10 perc
-  max: 100
-});
-app.use(limiter);
-app.use(cors());
-
-app.use('/api/auth', AuthRouter);
-app.use('/api/user', UserRouter);
-app.use('/api/books', BookRouter);
-app.use(errorHandler);
-
-app.listen(port, () => {
-  console.log(`Server Started at ${port}`);
-});
+export default createApp;

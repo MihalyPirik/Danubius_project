@@ -16,7 +16,7 @@ export const createUser = async (req, res, next) => {
       role
     });
 
-    sendTokenResponse(user, 200, res);
+    sendTokenResponse(user, 201, res);
   } catch (error) {
     res.status(400).json({ success: false, msg: error.message });
   };
