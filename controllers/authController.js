@@ -72,11 +72,12 @@ export const logoutUser = async (req, res, next) => {
 export const sendTokenResponse = (user, statusCode, res) => {
   const token = user.getSignedToken();
 
-  const options = {
-    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: true
-  };
+  // const options = {
+  //   expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+  //   httpOnly: true,
+  //   secure: true
+  // };
 
-  res.status(statusCode).cookie('token', token, options).json({ success: true, token });
+  // res.status(statusCode).cookie('token', token, options).json({ success: true, token });
+  res.status(statusCode).json({ success: true, token });
 };
