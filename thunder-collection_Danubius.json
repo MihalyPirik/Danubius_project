@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Danubius",
     "collectionId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
-    "dateExported": "2024-04-28T12:25:32.934Z",
+    "dateExported": "2024-05-01T17:06:54.516Z",
     "version": "1.2",
     "folders": [
         {
@@ -63,7 +63,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-04-26T10:20:08.508Z",
-            "modified": "2024-04-28T09:59:14.572Z",
+            "modified": "2024-04-30T12:49:21.250Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -81,7 +81,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"misi\",\n    \"email\": \"misi1@misi.hu\",\n    \"role\": \"publisher\",\n    \"password\": \"12345678\"\n}\n",
+                "raw": "{\n    \"name\": \"misi\",\n    \"email\": \"misi5@misi.hu\",\n    \"role\": \"user\",\n    \"password\": \"12345678\"\n}\n",
                 "form": []
             }
         },
@@ -146,11 +146,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
             "name": "deleteUser",
-            "url": "http://localhost:3000/api/user/662e30f4d102ccfec7b55cad",
+            "url": "http://localhost:3000/api/user/662fb2e5d58e4b0a535652a7",
             "method": "DELETE",
             "sortNum": 15000,
             "created": "2024-04-26T15:22:37.926Z",
-            "modified": "2024-04-28T11:20:35.067Z",
+            "modified": "2024-04-29T14:48:33.547Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -168,7 +168,7 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmUzMGY0ZDEwMmNjZmVjN2I1NWNhZCIsImlhdCI6MTcxNDMwMzIyMCwiZXhwIjoxNzE2ODk1MjIwfQ.SnT0O57pP5tsK3BAdLavfjLhrNPWrwyLnvwnLg9YbZA"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmU1ZDU4ZTRiMGE1MzU2NTJhNyIsImlhdCI6MTcxNDQwMjEwNywiZXhwIjoxNzE2OTk0MTA3fQ.tAWcSLwTg9gL6zCLxI_Fk7ZL9b7XXXrqSYb7ReJN1Do"
             }
         },
         {
@@ -180,7 +180,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-04-26T10:25:18.696Z",
-            "modified": "2024-04-28T12:24:39.480Z",
+            "modified": "2024-04-29T14:47:16.440Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -198,7 +198,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"email\": \"misi@misi.hu\",\n    \"password\": \"12345678\"\n}\n",
+                "raw": "{\n    \"email\": \"misi3@misi.hu\",\n    \"password\": \"12345678\"\n}\n",
                 "form": []
             }
         },
@@ -341,7 +341,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-04-26T11:25:45.814Z",
-            "modified": "2024-04-27T14:06:55.607Z",
+            "modified": "2024-04-29T14:47:35.005Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -359,12 +359,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450003\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
+                "raw": "{\r\n    \"author\": \"Sophie Johnson\",\r\n    \"title\": \"The Secret Island\",\r\n    \"ISBN\": \"9780123450000\",\r\n    \"publisher\": \"Publisher XYZ\",\r\n    \"publicationYear\": 2019,\r\n    \"amount\": 25,\r\n    \"price\": 1899\r\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM2YTFiOThkOTU1NTU5ZTYyZSIsImlhdCI6MTcxNDIyNjcyMCwiZXhwIjoxNzE2ODE4NzIwfQ.L_AgKOGUOPYm6_ZKw9oh1-0PgRUUVUh16ngigWIZp-Y"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmU1ZDU4ZTRiMGE1MzU2NTJhNyIsImlhdCI6MTcxNDQwMjAzNiwiZXhwIjoxNzE2OTk0MDM2fQ.3tGrvvJ4CqX_ZucjrL0L52G_2UmG6HB2VqBgeXXK0oU"
             }
         },
         {
@@ -433,5 +433,5 @@
             }
         }
     ],
-    "ref": "06QlXYK2SUyNRvn_0AMguaI8bjzuthdLtJ1ZnIRDVSoHz5VIO9x_IvWgluTDHf4QwQUAI47K7pDEZ4GyVOzASQ"
+    "ref": "06QlXYK2SUyNRvn_0AMguZ75uaPQ4g2kGa0fk0c_UVoHBnVNn-9MS4_X22sybakDrJAE5L3iIuOXOiKKhCBokQ"
 }

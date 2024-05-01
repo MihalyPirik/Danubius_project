@@ -70,7 +70,8 @@ export const logoutUser = async (req, res, next) => {
 };
 
 export const sendTokenResponse = (user, statusCode, res) => {
-  const token = user.getSignedToken();
+  try {
+    const token = user.getSignedToken();
 
   // const options = {
   //   expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
@@ -78,6 +79,9 @@ export const sendTokenResponse = (user, statusCode, res) => {
   //   secure: true
   // };
 
-  // res.status(statusCode).cookie('token', token, options).json({ success: true, token });
+  // res.status(statusCode).cookie('token', token, options).json({ success: true, token }); // nincs rá teszt
   res.status(statusCode).json({ success: true, token });
+  } catch (error) {
+    next(error);
+  }
 };
