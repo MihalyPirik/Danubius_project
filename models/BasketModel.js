@@ -12,10 +12,7 @@ const basketSchema = new mongoose.Schema({
         ref: 'BookModel',
         required: true
       },
-      count: {
-        type: Number,
-        default: 1
-      }
+      quantity: { type: Number }
     }
   ],
   createdAt: {

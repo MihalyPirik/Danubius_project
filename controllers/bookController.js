@@ -95,13 +95,13 @@ export const updateBook = async (req, res, next) => {
     req.body.user = decoded.id;
 
     const bookUser = await BookModel.findById(req.params.id)
-    if (!bookUser) {
-      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
-    }
-
     if (bookUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Csak a könyv tulajdonosa frissítheti a könyvet!', 401));
     };
+
+    if (!bookUser) {
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
+    }
 
     const book = await BookModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true, // A frissített adatokat kapjuk vissza
