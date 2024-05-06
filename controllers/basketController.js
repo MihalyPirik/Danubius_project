@@ -12,7 +12,7 @@ export const getBasket = async (req, res, next) => {
       return next(new ErrorResponse('Csak a saját kosaradat nézheted meg!', 401));
     };
 
-    const basket = await BasketModel.find({ user: req.params.id });
+    const basket = await BasketModel.find({ user: req.params.id }).populate('books.book', '-_id -__v -user');
 
     if (!basket || basket.length === 0) {
       return next(new ErrorResponse(`${req.user.name} nem rendelkezik kosárral!`, 400));
@@ -58,13 +58,13 @@ export const createBasket = async (req, res, next) => {
   }
 };
 // @desc   PUT Update basket
-// @route  PUT /api/user/basket/:id
+// @route  PUT /api/user/basket/:id/:userId
 // @access Private
 export const putUpdateBasket = async (req, res, next) => {
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
-    req.body.user = decoded.id;
+    req.body.user = req.params.userId;
 
     const basketUser = await BasketModel.findById(req.params.id)
     if (basketUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
@@ -86,13 +86,13 @@ export const putUpdateBasket = async (req, res, next) => {
   }
 };
 // @desc   Patch Update basket
-// @route  PATCH /api/user/basket/:id
+// @route  PATCH /api/user/basket/:id/:userId
 // @access Private
 export const patchUpdateBasket = async (req, res, next) => {
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
-    req.body.user = decoded.id;
+    req.body.user = req.params.userId;
 
     const basketUser = await BasketModel.findById(req.params.id)
     if (basketUser.user.toString() !== decoded.id && req.user.role !== 'admin') {

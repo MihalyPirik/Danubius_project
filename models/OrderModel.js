@@ -1,6 +1,8 @@
+import BasketModel from './BasketModel.js';
+
 import mongoose from 'mongoose';
 
-const BasketSchema = new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     required: true
@@ -21,6 +23,11 @@ const BasketSchema = new mongoose.Schema({
   }
 });
 
-const BasketModel = mongoose.model('BasketModel', BasketSchema, 'baskets');
+OrderSchema.pre('save', { document: true }, async function (next) {
+  await BasketModel.deleteMany({ user: this.user });
+  next();
+});
 
-export default BasketModel;
+const OrderModel = mongoose.model('OrderModel', OrderSchema, 'orders');
+
+export default OrderModel;

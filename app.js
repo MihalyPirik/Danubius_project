@@ -12,6 +12,7 @@ import AuthRouter from './routes/authRoutes.js';
 import UserRouter from './routes/userRoutes.js';
 import BookRouter from './routes/bookRoutes.js';
 import BasketRouter from './routes/basketRoutes.js';
+import OrderRouter from './routes/orderRoutes.js';
 import { errorHandler } from './middlewares/error.js';
 
 dotenv.config();
@@ -44,6 +45,7 @@ const createApp = () => {
   app.use('/api/user', UserRouter);
   app.use('/api/books', BookRouter);
   app.use('/api/user/basket', BasketRouter);
+  app.use('/api/user/orders', OrderRouter);
   app.use(errorHandler);
 
   return app;

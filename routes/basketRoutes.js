@@ -9,8 +9,10 @@ basketRouter
   .route('/:id')
   .get(protect, getBasket)
   .post(protect, createBasket)
-  .put(protect, putUpdateBasket)
-  .patch(protect, patchUpdateBasket)
   .delete(protect, deleteBasket);
 
+basketRouter
+  .route('/:id/:userId')
+  .put(protect, putUpdateBasket)
+  .patch(protect, patchUpdateBasket);
 export default basketRouter;

@@ -68,7 +68,7 @@ export const getBook = async (req, res, next) => {
   }
 };
 // @desc   Create new book
-// @route  POST /api/books
+// @route  POST /api/books/:id
 // @access Private
 export const createBook = async (req, res, next) => {
   try {
@@ -77,7 +77,7 @@ export const createBook = async (req, res, next) => {
       return next(new ErrorResponse('Csak magadnak hozhatsz létre könyvet!', 401));
     };
 
-    req.body.user = decoded.id;
+    req.body.user = req.params.id;
 
     const book = await BookModel.create(req.body);
     res.status(201).json({ success: true, data: book });
@@ -86,13 +86,13 @@ export const createBook = async (req, res, next) => {
   }
 };
 // @desc   Update book
-// @route  PUT /api/books/:id
+// @route  PUT /api/books/:id/:userId
 // @access Private
 export const updateBook = async (req, res, next) => {
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
-    req.body.user = decoded.id;
+    req.body.user = req.params.userId;
 
     const bookUser = await BookModel.findById(req.params.id)
     if (bookUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
