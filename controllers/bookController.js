@@ -73,7 +73,6 @@ export const getBook = async (req, res, next) => {
 export const createBook = async (req, res, next) => {
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
-
     if ((req.body.user && req.body.user.toString() !== decoded.id) && req.user.role !== 'admin') {
       return next(new ErrorResponse('Csak magadnak hozhatsz létre könyvet!', 401));
     };

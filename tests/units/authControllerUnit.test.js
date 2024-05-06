@@ -1,5 +1,5 @@
 import UserModel from '../../models/UserModel.js';
-import { createUser, loginUser } from '../../controllers/authController.js';
+import { createUser } from '../../controllers/authController.js';
 
 jest.mock('../../models/UserModel.js');
 
@@ -8,10 +8,7 @@ describe('AuthController', () => {
 
     beforeEach(() => {
         req = {
-            body: {
-                email: 'misi10@misi.hu',
-                password: '12345678'
-            }
+            body: {}
         };
         res = {
             status: jest.fn().mockReturnThis(),
@@ -47,23 +44,6 @@ describe('AuthController', () => {
 
             expect(res.status).toHaveBeenCalledWith(400);
             expect(res.json).toHaveBeenCalledWith({ success: false, msg: 'Failed to create user' });
-        });
-    });
-    describe('POST /api/auth/login', () => {
-        it('should handle login with correct credentials', async () => {
-            const mockUser = {
-                email: 'misi10@misi.hu',
-                password: '12345678',
-                role: 'user',
-                getSignedToken: jest.fn().mockReturnValue('mockToken')
-            };
-
-            UserModel.findOne.mockResolvedValue(mockUser);
-
-            await loginUser(req, res, next);
-
-            expect(res.status).toHaveBeenCalledWith(200);
-            expect(res.json).toHaveBeenCalledWith({ success: true, token: 'mockToken' });
         });
     });
 });

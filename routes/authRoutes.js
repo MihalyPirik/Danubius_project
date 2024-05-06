@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import { createUser, loginUser, logoutUser } from '../controllers/authController.js';
-import { protect, authorize } from '../middlewares/auth.js';
+import { protect } from '../middlewares/auth.js';
 
 const AuthRouter = Router();
 

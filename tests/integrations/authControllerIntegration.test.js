@@ -2,7 +2,7 @@ import supertest from 'supertest';
 
 import createApp from '../../app';
 
-const userData = { name: 'misi', email: 'misi4@misi.hu', password: '12345678', role: 'user' };
+const userData = { name: 'teszt', email: 'teszt@teszt.hu', password: '12345678', role: 'user' };
 
 describe('App', () => {
     let app;
@@ -28,14 +28,14 @@ describe('App', () => {
             describe('should user login data and check it', () => {
                 it('should handle login with correct credentials and return 200', async () => {
                     const response = await supertest(app).post('/api/auth/login').send({
-                        email: 'misi4@misi.hu',
+                        email: 'teszt@teszt.hu',
                         password: '12345678'
                     });
                     expect(response.statusCode).toBe(200);
                 });
                 it('should handle login with incorrect credentials and return 401', async () => {
                     const response = await supertest(app).post('/api/auth/login').send({
-                        email: 'misi3@misi.hu',
+                        email: 'teszt@teszt.hu',
                         password: '123456789'
                     });
                     expect(response.statusCode).toBe(401);
