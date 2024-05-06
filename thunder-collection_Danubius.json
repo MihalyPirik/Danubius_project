@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Danubius",
     "collectionId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
-    "dateExported": "2024-05-06T07:48:15.042Z",
+    "dateExported": "2024-05-06T12:16:22.827Z",
     "version": "1.2",
     "folders": [
         {
@@ -32,6 +32,13 @@
             "containerId": "",
             "created": "2024-05-02T14:35:38.935Z",
             "sortNum": 40000
+        },
+        {
+            "_id": "14252e60-e697-4780-a658-4b42303cc46b",
+            "name": "order",
+            "containerId": "",
+            "created": "2024-05-06T08:28:54.573Z",
+            "sortNum": 50000
         }
     ],
     "requests": [
@@ -127,11 +134,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "483380ea-de26-4a00-8feb-30a935bd6252",
             "name": "getBasket",
-            "url": "http://localhost:3000/api/user/basket/662fb2e0d58e4b0a535652a5",
+            "url": "http://localhost:3000/api/user/basket/662d0034a1b98d955559e62c",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-05-02T14:35:43.829Z",
-            "modified": "2024-05-06T07:41:39.601Z",
+            "modified": "2024-05-06T07:58:36.704Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -149,7 +156,37 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmUwZDU4ZTRiMGE1MzU2NTJhNSIsImlhdCI6MTcxNDk4MTAyNywiZXhwIjoxNzE3NTczMDI3fQ.Qev-jBS6kpNn_w6h0ueVvlk5aJ5penOVKi6vON4qnU0"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MjI5NSwiZXhwIjoxNzE3NTc0Mjk1fQ.SdFHcT4mfdpIG4VP24Ej7nRy7E4KlVahPwLeqo9O7bQ"
+            }
+        },
+        {
+            "_id": "ab499c4f-8e56-4284-9631-6fd17db36e50",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
+            "name": "getOrders",
+            "url": "http://localhost:3000/api/user/orders/662d0034a1b98d955559e62c",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-06T08:29:00.207Z",
+            "modified": "2024-05-06T08:30:06.734Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MjI5NSwiZXhwIjoxNzE3NTc0Mjk1fQ.SdFHcT4mfdpIG4VP24Ej7nRy7E4KlVahPwLeqo9O7bQ"
             }
         },
         {
@@ -213,11 +250,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "483380ea-de26-4a00-8feb-30a935bd6252",
             "name": "deleteBasket",
-            "url": "http://localhost:3000/api/user/basket/663887dd7e3821eefb93a324",
+            "url": "http://localhost:3000/api/user/basket/6638bf2b03dc44b9b36af56b",
             "method": "DELETE",
             "sortNum": 15000,
             "created": "2024-05-06T07:30:16.597Z",
-            "modified": "2024-05-06T07:47:48.958Z",
+            "modified": "2024-05-06T12:08:04.061Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -378,7 +415,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-05-02T15:19:26.802Z",
-            "modified": "2024-05-06T07:36:10.696Z",
+            "modified": "2024-05-06T12:08:22.342Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -396,12 +433,42 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"_id\": \"662fb295d58e4b0a5356528d\"\n}",
+                "raw": "{\n  \"_id\": \"662fb2d7d58e4b0a535652a3\",\n   \"quantity\": 26\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MDk1NywiZXhwIjoxNzE3NTcyOTU3fQ.CpWenhKgrNSpdNSsFAVB1DRNetTR3Z9rHVSG5mwh1gY"
+            }
+        },
+        {
+            "_id": "f77e2e97-04a1-43f9-9f30-9a61ff461750",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
+            "name": "postOrder",
+            "url": "http://localhost:3000/api/user/orders/662d0034a1b98d955559e62c",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-06T08:29:23.038Z",
+            "modified": "2024-05-06T09:09:56.435Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4NTg1MywiZXhwIjoxNzE3NTc3ODUzfQ.VwkVsEv1VYxxIw_Ast2WIdyIy8AdSIoqiCwH1AlYKZw"
             }
         },
         {
@@ -439,11 +506,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
             "name": "postBook",
-            "url": "http://localhost:3000/api/books",
+            "url": "http://localhost:3000/api/books/662d0034a1b98d955559e62c",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-04-26T11:25:45.814Z",
-            "modified": "2024-04-29T14:47:35.005Z",
+            "modified": "2024-05-06T08:51:13.745Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -461,7 +528,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\r\n    \"author\": \"Sophie Johnson\",\r\n    \"title\": \"The Secret Island\",\r\n    \"ISBN\": \"9780123450000\",\r\n    \"publisher\": \"Publisher XYZ\",\r\n    \"publicationYear\": 2019,\r\n    \"amount\": 25,\r\n    \"price\": 1899\r\n}",
+                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450000\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
                 "form": []
             },
             "auth": {
@@ -539,11 +606,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "483380ea-de26-4a00-8feb-30a935bd6252",
             "name": "PatchUpdateBasket",
-            "url": "http://localhost:3000/api/user/basket/663887dd7e3821eefb93a324",
+            "url": "http://localhost:3000/api/user/basket/6638c8283042e4580d566057/662d0034a1b98d955559e62c",
             "method": "PATCH",
             "sortNum": 30000,
             "created": "2024-05-06T05:44:21.137Z",
-            "modified": "2024-05-06T07:43:05.908Z",
+            "modified": "2024-05-06T12:08:54.889Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -561,12 +628,47 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"_id\": \"662fb295d58e4b0a5356528d\",\n  \"quantity\": 1\n}",
+                "raw": "{\n  \"_id\": \"662fb2d7d58e4b0a535652a3\",\n  \"quantity\": 2\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MTM3NiwiZXhwIjoxNzE3NTczMzc2fQ.g4X6T5sAO1D3ex8gqfOnWijrr6T_FpE3uOQe1T-Ix-s"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MjI5NSwiZXhwIjoxNzE3NTc0Mjk1fQ.SdFHcT4mfdpIG4VP24Ej7nRy7E4KlVahPwLeqo9O7bQ"
+            }
+        },
+        {
+            "_id": "a8642158-ebb2-48fb-adfc-0bfb8ff72d41",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
+            "name": "PutUpdateOrder",
+            "url": "http://localhost:3000/api/user/orders/6638886a7e3821eefb93a330/662d0034a1b98d955559e62c",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-05-06T11:13:57.142Z",
+            "modified": "2024-05-06T11:14:58.495Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmUwZDU4ZTRiMGE1MzU2NTJhNSIsImlhdCI6MTcxNDk4MTQ3OSwiZXhwIjoxNzE3NTczNDc5fQ.hUXSSfRyPC3FTEbeYtTOxrJ1TmHdbXwzm30cwoqpe8Y"
             }
         },
         {
@@ -574,11 +676,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "483380ea-de26-4a00-8feb-30a935bd6252",
             "name": "PutUpdateBasket",
-            "url": "http://localhost:3000/api/user/basket/6638886a7e3821eefb93a330",
+            "url": "http://localhost:3000/api/user/basket/6638c8283042e4580d566057/662d0034a1b98d955559e62c",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-05-06T07:10:54.199Z",
-            "modified": "2024-05-06T07:46:38.512Z",
+            "modified": "2024-05-06T12:12:45.226Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -596,14 +698,44 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n \"books\": [\n        {\n          \"book\": \"662fb295d58e4b0a5356528d\",\n          \"quantity\": 5,\n          \"_id\": \"6638830f5a43883a399fb8ce\"\n        },\n        {\n          \"book\": \"662fb295d58e4b0a53565281\",\n          \"quantity\": 5,\n          \"_id\": \"66388432b496e4c19174590e\"\n        },\n        {\n          \"book\": \"662fb295d58e4b0a53565282\",\n          \"quantity\": 5,\n          \"_id\": \"66388434b496e4c191745918\"\n        }\n      ]\n}",
+                "raw": "{\n \"books\": [\n        {\n          \"book\": \"662fb295d58e4b0a5356528d\",\n          \"quantity\": 2,\n          \"_id\": \"6638830f5a43883a399fb8ce\"\n        },\n          {\n          \"book\": \"662fb2d4d58e4b0a535652a0\",\n          \"quantity\": 2,\n          \"_id\": \"6638830f5a43883a399fb8c2\"\n        },\n          {\n          \"book\": \"662fb2d7d58e4b0a535652a3\",\n          \"quantity\": 2,\n          \"_id\": \"6638830f5a43883a399fb8c1\"\n        }\n      ]\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmUwZDU4ZTRiMGE1MzU2NTJhNSIsImlhdCI6MTcxNDk4MTQ3OSwiZXhwIjoxNzE3NTczNDc5fQ.hUXSSfRyPC3FTEbeYtTOxrJ1TmHdbXwzm30cwoqpe8Y"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk5NjU1OSwiZXhwIjoxNzE3NTg4NTU5fQ.bHgODqNe31LhLapay4TfDPEqzmxyGpqya-tmOmHCEig"
+            }
+        },
+        {
+            "_id": "3caa1a4a-7bbe-40b8-901c-3719ec118114",
+            "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
+            "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
+            "name": "deleteOrder",
+            "url": "http://localhost:3000/api/user/orders/663887dd7e3821eefb93a324",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-05-06T11:14:01.624Z",
+            "modified": "2024-05-06T11:14:21.942Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MTY0NSwiZXhwIjoxNzE3NTczNjQ1fQ.KqPlulAaYQYQPaEQZP4SWHz7_hKnuStWPuR-C1XqKQg"
             }
         }
     ],
-    "ref": "06QlXYK2SUyNRvn_0AMguU-beWMKOHose0ISJKMemSLduEYYRZVXs5GBVe_BeKxRSRotKbrUMxYaDggQ1n3LRA"
+    "ref": "06QlXYK2SUyNRvn_0AMgucBbYSDwrb4gkTMorD_Hs3oMEP1u5Vvhda6llLwvmt_hV8ofourYJU0hGItdNxFqPA"
 }

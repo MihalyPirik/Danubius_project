@@ -14,5 +14,5 @@ basketRouter
 basketRouter
   .route('/:id/:userId')
   .put(protect, putUpdateBasket)
-  .patch(protect, patchUpdateBasket);
+  .patch(protect, patchUpdateBasket); // még nem jó, a mennyiséget nem nézi
 export default basketRouter;

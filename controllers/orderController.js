@@ -13,19 +13,13 @@ export const getOrders = async (req, res, next) => {
       return next(new ErrorResponse('Csak a saját kosaradat nézheted meg!', 401));
     };
 
-    const orders = await OrderModel.find({ user: req.params.id }).populate('books.book', '-_id -__v -user');
+    const orders = await OrderModel.find({ user: req.params.id }).populate('books.book', '-_id -__v -user').populate('user', '-__v -createdAt');
 
     if (!orders || orders.length === 0) {
       return next(new ErrorResponse(`${req.user.name} nem rendelkezik rendeléssel!`, 400));
     }
 
-    // let bookQuantity = 0;
-    // for (const book of orders[0].books) {
-    //   bookQuantity += book.quantity;
-    // }
-
-    // res.status(200).json({ success: true, count: bookQuantity, data: orders });
-    res.status(200).json({ success: true, data: orders });
+    res.status(200).json({ success: true, count: orders.length, data: orders });
   } catch (error) {
     next(error);
   }
@@ -47,8 +41,58 @@ export const createOrder = async (req, res, next) => {
 
     const order = new OrderModel(req.body);
     await order.save();
-    
+
     res.status(201).json({ success: true, data: order });
+  } catch (error) {
+    next(error);
+  }
+};
+// @desc   Update order
+// @route  PUT /api/orders/:id/:userId
+// @access Private
+export const updateOrder = async (req, res, next) => {
+  try {
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+
+    req.body.user = req.params.userId;
+
+    const orderUser = await OrderModel.findById(req.params.id)
+    if (orderUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak a rendelés tulajdonosa frissítheti a rendelést!', 401));
+    };
+
+    if (!orderUser) {
+      return next(new ErrorResponse('Nincs ilyen rendelés!', 400));
+    }
+
+    const order = await OrderModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true, // A frissített adatokat kapjuk vissza
+      runValidators: true, // Ellenőrzi a frissített adatokat a modell
+    });
+
+    res.status(200).json({ success: true, data: order });
+  } catch (error) {
+    next(error);
+  }
+};
+// @desc   Delete order
+// @route  DELETE /api/orders/:id
+// @access Private
+export const deleteOrder = async (req, res, next) => {
+  try {
+    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
+
+    const orderUser = await OrderModel.findById(req.params.id)
+    if (!orderUser) {
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
+    }
+
+    if (orderUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
+      return next(new ErrorResponse('Csak a rendelés tulajdonosa törölheti a rendelést!', 401));
+    };
+
+    await OrderModel.findByIdAndDelete(req.params.id);
+    res.status(200).json({ success: true, data: {} });
   } catch (error) {
     next(error);
   }
