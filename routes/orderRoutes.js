@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { getOrders, createOrder, updateOrder, deleteOrder } from '../controllers/orderController.js';
 import { protect } from '../middlewares/auth.js';
 
-const orderRouter = Router(); // még nem jó
+const orderRouter = Router();
 
 orderRouter
   .route('/:id')

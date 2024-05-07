@@ -17,14 +17,14 @@ export const getBooks = async (req, res, next) => {
     if (req.query.select) {
       const fields = req.query.select.split(',').join(' ');
       query = query.select(fields);
-    }
+    };
 
     if (req.query.sort) {
       const sortBy = req.query.sort.split(',').join(' ');
       query = query.sort(sortBy);
     } else {
       query = query.sort('-createdAt'); // default
-    }
+    };
 
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
@@ -61,7 +61,7 @@ export const getBook = async (req, res, next) => {
     const book = await BookModel.findById(req.params.id);
     if (!book) {
       return next(new ErrorResponse('Nincs ilyen könyv!', 400));
-    }
+    };
     res.status(200).json({ success: true, data: book });
   } catch (error) {
     next(new ErrorResponse(`A könyv id nem megfelelő: (${req.params.id})!`, 404));
@@ -101,7 +101,7 @@ export const updateBook = async (req, res, next) => {
 
     if (!bookUser) {
       return next(new ErrorResponse('Nincs ilyen könyv!', 400));
-    }
+    };
 
     const book = await BookModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true, // A frissített adatokat kapjuk vissza

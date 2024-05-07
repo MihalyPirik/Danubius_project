@@ -17,7 +17,7 @@ export const getOrders = async (req, res, next) => {
 
     if (!orders || orders.length === 0) {
       return next(new ErrorResponse(`${req.user.name} nem rendelkezik rendeléssel!`, 400));
-    }
+    };
 
     res.status(200).json({ success: true, count: orders.length, data: orders });
   } catch (error) {
@@ -84,8 +84,8 @@ export const deleteOrder = async (req, res, next) => {
 
     const orderUser = await OrderModel.findById(req.params.id)
     if (!orderUser) {
-      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
-    }
+      return next(new ErrorResponse('Nincs ilyen rendelés!', 400));
+    };
 
     if (orderUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
       return next(new ErrorResponse('Csak a rendelés tulajdonosa törölheti a rendelést!', 401));

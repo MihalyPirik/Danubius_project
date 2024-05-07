@@ -42,16 +42,16 @@ export const createBasket = async (req, res, next) => {
     const basketCheck = await BasketModel.find({ user: req.params.id });
     if (basketCheck.length !== 0) {
       return next(new ErrorResponse(`${req.user.name} már rendelkezik kosárral!`, 400));
-    }
+    };
 
     const book = await BookModel.findOne({ _id: req.body._id });
     if (book.amount < req.body.quantity) {
       return next(new ErrorResponse(`Ebből a könyből a kosárba elhelyezhető maximális mennyiség: ${book.amount} db!`, 400));
-    }
+    };
 
     if (req.body.quantity < 0) {
       return next(new ErrorResponse('Nem lehet negatív a könyv mennyisége!', 400));
-    }
+    };
 
     const newBasket = {
       user: req.params.id,
@@ -59,7 +59,7 @@ export const createBasket = async (req, res, next) => {
         book: req.body._id,
         quantity: req.body.quantity,
       }
-    }
+    };
 
     const basket = await BasketModel.create(newBasket);
     res.status(201).json({ success: true, data: basket });

@@ -1,5 +1,6 @@
 import BasketModel from './BasketModel.js';
 import BookModel from './BookModel.js';
+import { ErrorResponse } from '../utils/errorResponse.js';
 
 import mongoose from 'mongoose';
 
@@ -26,9 +27,29 @@ const OrderSchema = new mongoose.Schema({
 });
 
 OrderSchema.pre('save', { document: true }, async function (next) {
-  // await BasketModel.deleteMany({ user: this.user });
-  const books = await BookModel.find({ _id: this.books[0].book });
-  console.log(books);
+  for (const bookObj of this.books) {
+    const book = await BookModel.findOne({ _id: bookObj.book });
+
+    if (bookObj.quantity > book.amount) {
+      return next(new ErrorResponse('Nem lehet több könyvet venni mint amennyi van!', 400));
+    };
+
+    if (bookObj.quantity == book.amount) {
+      await BookModel.updateOne(
+        { _id: bookObj.book },
+        { $set: { amount: 0 } }
+      );
+    };
+
+    if (bookObj.quantity < book.amount) {
+      await BookModel.updateOne(
+        { _id: bookObj.book },
+        { $set: { amount: book.amount - bookObj.quantity } }
+      );
+    };
+  }
+
+  await BasketModel.deleteMany({ user: this.user });
   next();
 });
 

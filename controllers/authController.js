@@ -38,7 +38,7 @@ export const loginUser = async (req, res, next) => {
       return next(new ErrorResponse('Érvénytelen email cím vagy jelszó!', 401));
     }
 
-    const isMatch = await user.matchPassword(password)
+    const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
       return next(new ErrorResponse('Érvénytelen email cím vagy jelszó!', 401));

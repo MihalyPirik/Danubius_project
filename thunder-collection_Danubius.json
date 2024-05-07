@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Danubius",
     "collectionId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
-    "dateExported": "2024-05-06T12:16:22.827Z",
+    "dateExported": "2024-05-07T08:54:00.068Z",
     "version": "1.2",
     "folders": [
         {
@@ -77,7 +77,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-04-26T10:20:08.508Z",
-            "modified": "2024-04-30T12:49:21.250Z",
+            "modified": "2024-05-07T08:48:47.603Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -95,7 +95,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"misi\",\n    \"email\": \"misi5@misi.hu\",\n    \"role\": \"user\",\n    \"password\": \"12345678\"\n}\n",
+                "raw": "{\n    \"name\": \"misi\",\n    \"email\": \"misi@misi.hu\",\n    \"role\": \"user\",\n    \"password\": \"12345678\"\n}\n",
                 "form": []
             }
         },
@@ -138,7 +138,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-05-02T14:35:43.829Z",
-            "modified": "2024-05-06T07:58:36.704Z",
+            "modified": "2024-05-07T07:25:04.298Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -156,7 +156,7 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MjI5NSwiZXhwIjoxNzE3NTc0Mjk1fQ.SdFHcT4mfdpIG4VP24Ej7nRy7E4KlVahPwLeqo9O7bQ"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA2NjY3OSwiZXhwIjoxNzE3NjU4Njc5fQ.koWcvRRwxNLh4Ooppqv9HSaFR6Cs_NFgQFXQo0YATzc"
             }
         },
         {
@@ -220,11 +220,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
             "name": "deleteUser",
-            "url": "http://localhost:3000/api/user/662fb2e5d58e4b0a535652a7",
+            "url": "http://localhost:3000/api/user/662d0034a1b98d955559e62c",
             "method": "DELETE",
             "sortNum": 15000,
             "created": "2024-04-26T15:22:37.926Z",
-            "modified": "2024-04-29T14:48:33.547Z",
+            "modified": "2024-05-07T08:47:58.796Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -242,7 +242,7 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmU1ZDU4ZTRiMGE1MzU2NTJhNyIsImlhdCI6MTcxNDQwMjEwNywiZXhwIjoxNzE2OTk0MTA3fQ.tAWcSLwTg9gL6zCLxI_Fk7ZL9b7XXXrqSYb7ReJN1Do"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA3MTYxNCwiZXhwIjoxNzE3NjYzNjE0fQ.ni6-jYSFOiFpF8iZ4FevRw9snT-9Wo2mT5Bmi1b0ZRw"
             }
         },
         {
@@ -415,7 +415,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-05-02T15:19:26.802Z",
-            "modified": "2024-05-06T12:08:22.342Z",
+            "modified": "2024-05-07T08:29:30.814Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -433,7 +433,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"_id\": \"662fb2d7d58e4b0a535652a3\",\n   \"quantity\": 26\n}",
+                "raw": "{\n  \"_id\": \"662fb2cdd58e4b0a53565297\",\n   \"quantity\": 2\n}",
                 "form": []
             },
             "auth": {
@@ -450,7 +450,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-05-06T08:29:23.038Z",
-            "modified": "2024-05-06T09:09:56.435Z",
+            "modified": "2024-05-07T07:59:48.630Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -468,7 +468,7 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4NTg1MywiZXhwIjoxNzE3NTc3ODUzfQ.VwkVsEv1VYxxIw_Ast2WIdyIy8AdSIoqiCwH1AlYKZw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA2NjY3OSwiZXhwIjoxNzE3NjU4Njc5fQ.koWcvRRwxNLh4Ooppqv9HSaFR6Cs_NFgQFXQo0YATzc"
             }
         },
         {
@@ -506,11 +506,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
             "name": "postBook",
-            "url": "http://localhost:3000/api/books/662d0034a1b98d955559e62c",
+            "url": "http://localhost:3000/api/books/6639eaed79e633c4ec91de9a",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-04-26T11:25:45.814Z",
-            "modified": "2024-05-06T08:51:13.745Z",
+            "modified": "2024-05-07T08:53:46.860Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -528,12 +528,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450000\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
+                "raw": "{\r\n    \"author\": \"Sophie Johnson\",\r\n    \"title\": \"The Secret Island\",\r\n    \"ISBN\": \"9780123450000\",\r\n    \"publisher\": \"Publisher XYZ\",\r\n    \"publicationYear\": 2019,\r\n    \"amount\": 25,\r\n    \"price\": 1899\r\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmU1ZDU4ZTRiMGE1MzU2NTJhNyIsImlhdCI6MTcxNDQwMjAzNiwiZXhwIjoxNzE2OTk0MDM2fQ.3tGrvvJ4CqX_ZucjrL0L52G_2UmG6HB2VqBgeXXK0oU"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzllYWVkNzllNjMzYzRlYzkxZGU5YSIsImlhdCI6MTcxNTA3MTg2NSwiZXhwIjoxNzE3NjYzODY1fQ.LKySDf2eVXboiM0Tk4VhIzDkXkZ3AiQFtfawaqy-EMo"
             }
         },
         {
@@ -606,11 +606,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "483380ea-de26-4a00-8feb-30a935bd6252",
             "name": "PatchUpdateBasket",
-            "url": "http://localhost:3000/api/user/basket/6638c8283042e4580d566057/662d0034a1b98d955559e62c",
+            "url": "http://localhost:3000/api/user/basket/6639e65399b4aab331864ea2/662d0034a1b98d955559e62c",
             "method": "PATCH",
             "sortNum": 30000,
             "created": "2024-05-06T05:44:21.137Z",
-            "modified": "2024-05-06T12:08:54.889Z",
+            "modified": "2024-05-07T08:30:07.194Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -628,12 +628,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"_id\": \"662fb2d7d58e4b0a535652a3\",\n  \"quantity\": 2\n}",
+                "raw": "{\n  \"_id\": \"662fb2cdd58e4b0a53565297\",\n  \"quantity\": 2\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MjI5NSwiZXhwIjoxNzE3NTc0Mjk1fQ.SdFHcT4mfdpIG4VP24Ej7nRy7E4KlVahPwLeqo9O7bQ"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA2NjY3OSwiZXhwIjoxNzE3NjU4Njc5fQ.koWcvRRwxNLh4Ooppqv9HSaFR6Cs_NFgQFXQo0YATzc"
             }
         },
         {
@@ -641,11 +641,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
             "name": "PutUpdateOrder",
-            "url": "http://localhost:3000/api/user/orders/6638886a7e3821eefb93a330/662d0034a1b98d955559e62c",
+            "url": "http://localhost:3000/api/user/orders/6639e592b8cb4890675a1861/662d0034a1b98d955559e62c",
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-05-06T11:13:57.142Z",
-            "modified": "2024-05-06T11:14:58.495Z",
+            "modified": "2024-05-07T08:37:13.243Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -663,12 +663,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \n}",
+                "raw": "{\n  \"books\" : [\n        {\n            \"book\" : \"662fb2c9d58e4b0a53565294\",\n            \"quantity\" : 2\n        },\n        {\n            \"book\" : \"662fb2cdd58e4b0a53565297\",\n            \"quantity\" : 0\n        }\n    ]\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmZiMmUwZDU4ZTRiMGE1MzU2NTJhNSIsImlhdCI6MTcxNDk4MTQ3OSwiZXhwIjoxNzE3NTczNDc5fQ.hUXSSfRyPC3FTEbeYtTOxrJ1TmHdbXwzm30cwoqpe8Y"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA3MTAyNSwiZXhwIjoxNzE3NjYzMDI1fQ.HSkvtXqOio_NqU1fQSAJ-1HXKXDutAuclepsIsAEwWM"
             }
         },
         {
@@ -680,7 +680,7 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-05-06T07:10:54.199Z",
-            "modified": "2024-05-06T12:12:45.226Z",
+            "modified": "2024-05-07T07:38:42.072Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -703,7 +703,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk5NjU1OSwiZXhwIjoxNzE3NTg4NTU5fQ.bHgODqNe31LhLapay4TfDPEqzmxyGpqya-tmOmHCEig"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA2NjY3OSwiZXhwIjoxNzE3NjU4Njc5fQ.koWcvRRwxNLh4Ooppqv9HSaFR6Cs_NFgQFXQo0YATzc"
             }
         },
         {
@@ -711,11 +711,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
             "name": "deleteOrder",
-            "url": "http://localhost:3000/api/user/orders/663887dd7e3821eefb93a324",
+            "url": "http://localhost:3000/api/user/orders/6639e592b8cb4890675a1861",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-05-06T11:14:01.624Z",
-            "modified": "2024-05-06T11:14:21.942Z",
+            "modified": "2024-05-07T08:37:51.577Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -733,9 +733,9 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDk4MTY0NSwiZXhwIjoxNzE3NTczNjQ1fQ.KqPlulAaYQYQPaEQZP4SWHz7_hKnuStWPuR-C1XqKQg"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA3MTAyNSwiZXhwIjoxNzE3NjYzMDI1fQ.HSkvtXqOio_NqU1fQSAJ-1HXKXDutAuclepsIsAEwWM"
             }
         }
     ],
-    "ref": "06QlXYK2SUyNRvn_0AMgucBbYSDwrb4gkTMorD_Hs3oMEP1u5Vvhda6llLwvmt_hV8ofourYJU0hGItdNxFqPA"
+    "ref": "06QlXYK2SUyNRvn_0AMguTOhQ6MNN_fmaKigtS1DesA4ukvcO4zIhwTgIsOWSctflIa1L7kMU6b2fJiS0xtGBw"
 }

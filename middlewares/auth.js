@@ -30,7 +30,7 @@ export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return next(new ErrorResponse(`A ${req.user.role} jogosultságod nem elégséges ehhez a művelethez!`, 403));
-    }
+    };
     next();
   };
 };
