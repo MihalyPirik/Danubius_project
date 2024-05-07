@@ -91,6 +91,9 @@ export const putUpdateBasket = async (req, res, next) => {
       if (bookCheck.amount < book.quantity) {
         return next(new ErrorResponse(`Ebből a könyből a kosárba elhelyezhető maximális mennyiség: ${bookCheck.amount} db!`, 400));
       };
+      if (book.quantity < 0) {
+        return next(new ErrorResponse('Nem lehet negatív a könyv mennyisége!', 400));
+      };
     };
 
     const basket = await BasketModel.findByIdAndUpdate(req.params.id, req.body, {
@@ -121,20 +124,39 @@ export const patchUpdateBasket = async (req, res, next) => {
       return next(new ErrorResponse('Nincs ilyen kosár!', 400));
     };
 
+    const bookCheck = await BookModel.findById(req.body._id);
+    if (!bookCheck) {
+      return next(new ErrorResponse('Nincs ilyen könyv!', 400));
+    };
+
+    if (req.body.quantity < 0) {
+      return next(new ErrorResponse('Nem lehet negatív a könyv mennyisége!', 400));
+    };
+
     var isBook = false;
     for (const book of basketUser.books) {
       if (book.book == req.body._id) {
-        book.quantity += req.body.quantity;
-        isBook = true;
+        if (bookCheck.amount >= book.quantity + req.body.quantity) {
+          book.quantity += req.body.quantity;
+          isBook = true;
+        }
+        else {
+          return next(new ErrorResponse(`Ebből a könyből a kosárba elhelyezhető maximális mennyiség: ${bookCheck.amount} db! Jelenleg a kosaradban ${book.quantity} db van!`, 400));
+        };
       };
     };
 
     if (!isBook) {
-      const newBasket = {
-        book: req.body._id,
-        quantity: req.body.quantity,
+      if (bookCheck.amount >= req.body.quantity) {
+        const newBasket = {
+          book: req.body._id,
+          quantity: req.body.quantity,
+        };
+        basketUser.books.push(newBasket);
+      }
+      else {
+        return next(new ErrorResponse(`Ebből a könyből a kosárba elhelyezhető maximális mennyiség: ${bookCheck.amount} db!`, 400));
       };
-      basketUser.books.push(newBasket);
     };
 
     const basket = await BasketModel.findByIdAndUpdate(req.params.id, basketUser, {
