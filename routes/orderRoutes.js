@@ -6,13 +6,13 @@ import { protect } from '../middlewares/auth.js';
 const orderRouter = Router();
 
 orderRouter
-  .route('/:id')
+  .route('/user/orders/:id')
   .get(protect, getOrders)
   .post(protect, createOrder)
   .delete(protect, deleteOrder);
 
 orderRouter
-  .route('/:id/:userId')
+  .route('/user/orders/:id/:userId')
   .put(protect, updateOrder)
 
 export default orderRouter;

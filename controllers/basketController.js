@@ -7,6 +7,8 @@ import { tokenVerify } from './bookController.js';
 // @route  GET /api/user/basket/:id
 // @access Private
 export const getBasket = async (req, res, next) => {
+  // #swagger.tags = ['Kosár']
+  // #swagger.summary = 'Kosár megjelenítése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -33,6 +35,8 @@ export const getBasket = async (req, res, next) => {
 // @route  POST /api/user/basket/:id
 // @access Private
 export const createBasket = async (req, res, next) => {
+  // #swagger.tags = ['Kosár']
+  // #swagger.summary = 'Kosár létrehozása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -71,6 +75,8 @@ export const createBasket = async (req, res, next) => {
 // @route  PUT /api/user/basket/:id/:userId
 // @access Private
 export const putUpdateBasket = async (req, res, next) => {
+  // #swagger.tags = ['Kosár']
+  // #swagger.summary = 'Kosár módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
@@ -110,6 +116,8 @@ export const putUpdateBasket = async (req, res, next) => {
 // @route  PATCH /api/user/basket/:id/:userId
 // @access Private
 export const patchUpdateBasket = async (req, res, next) => {
+  // #swagger.tags = ['Kosár']
+  // #swagger.summary = 'Kosár módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
@@ -173,6 +181,8 @@ export const patchUpdateBasket = async (req, res, next) => {
 // @route  DELETE /api/user/basket/:id
 // @access Private
 export const deleteBasket = async (req, res, next) => {
+  // #swagger.tags = ['Kosár']
+  // #swagger.summary = 'Kosár törlése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 

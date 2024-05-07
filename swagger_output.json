@@ -1,0 +1,996 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Könyvkereskedés API",
+    "description": "A dokumentációt a <b>swagger-autogen</b> modul generálta."
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Könyvek",
+      "description": "A könyvek kezelése"
+    },
+    {
+      "name": "Felhasználók",
+      "description": "A felhasználók nyilvántartása és kezelése"
+    },
+    {
+      "name": "Kosár",
+      "description": "A kosár kezelése"
+    },
+    {
+      "name": "Rendelések",
+      "description": "A rendelések kezelése"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer token"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/registration": {
+      "post": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Új felhasználó regisztrálása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "role": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó bejelentkezése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/auth/logout/{id}": {
+      "get": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó kijelentkezése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Egy felhasználó lekérése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó adatainak a módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó törlése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/{id}/books": {
+      "get": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó könyvei.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/password/{id}": {
+      "put": {
+        "tags": [
+          "Felhasználók"
+        ],
+        "summary": "Felhasználó jelszavának a módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "currentPassword": {
+                  "example": "any"
+                },
+                "newPassword": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/books/": {
+      "get": {
+        "tags": [
+          "Könyvek"
+        ],
+        "summary": "Könyvek megjelenítése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "select",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/books/{id}": {
+      "get": {
+        "tags": [
+          "Könyvek"
+        ],
+        "summary": "Egy könyv megjelenítése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Könyvek"
+        ],
+        "summary": "Könyv létrehozása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Könyvek"
+        ],
+        "summary": "Könyv törlése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/books/{id}/{userId}": {
+      "put": {
+        "tags": [
+          "Könyvek"
+        ],
+        "summary": "Könyv módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/basket/{id}": {
+      "get": {
+        "tags": [
+          "Kosár"
+        ],
+        "summary": "Kosár megjelenítése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Kosár"
+        ],
+        "summary": "Kosár létrehozása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "example": "any"
+                },
+                "quantity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Kosár"
+        ],
+        "summary": "Kosár törlése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/basket/{id}/{userId}": {
+      "put": {
+        "tags": [
+          "Kosár"
+        ],
+        "summary": "Kosár módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                },
+                "books": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Kosár"
+        ],
+        "summary": "Kosár módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                },
+                "_id": {
+                  "example": "any"
+                },
+                "quantity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/orders/{id}": {
+      "get": {
+        "tags": [
+          "Rendelések"
+        ],
+        "summary": "Rendelések megjelenítése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Rendelések"
+        ],
+        "summary": "Rendelés létrehozása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "books": {
+                  "example": "any"
+                },
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Rendelések"
+        ],
+        "summary": "Rendelés törlése.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/user/orders/{id}/{userId}": {
+      "put": {
+        "tags": [
+          "Rendelések"
+        ],
+        "summary": "Rendelés módosítása.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Könyv": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6639ebbb79e633c4ec91decb"
+        },
+        "author": {
+          "type": "string",
+          "example": "Sophie Johnson"
+        },
+        "title": {
+          "type": "string",
+          "example": "The Secret Island"
+        },
+        "ISBN": {
+          "type": "string",
+          "example": "9780123450000"
+        },
+        "publisher": {
+          "type": "string",
+          "example": "Publisher XYZ"
+        },
+        "publicationYear": {
+          "type": "number",
+          "example": 2019
+        },
+        "amount": {
+          "type": "number",
+          "example": 25
+        },
+        "price": {
+          "type": "number",
+          "example": 1899
+        },
+        "user": {
+          "type": "string",
+          "example": "6639eaed79e633c4ec91de9a"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2024-05-07T08:52:11.134+0000"
+        }
+      }
+    },
+    "Felhasználó": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "662fb2e0d58e4b0a535652a5"
+        },
+        "name": {
+          "type": "string",
+          "example": "misi"
+        },
+        "email": {
+          "type": "string",
+          "example": "misi1@misi.hu"
+        },
+        "role": {
+          "type": "string",
+          "example": "publisher"
+        },
+        "password": {
+          "type": "string",
+          "example": "$2a$10$nxktEGoY..hawv7mb6JeF.nuvLDEopEgllx6nkSJmJzljczyVVfb."
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2024-04-29T14:46:56.196+0000"
+        }
+      }
+    },
+    "Kosár": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "663a12307ac4e25df4a9535d"
+        },
+        "user": {
+          "type": "string",
+          "example": "662d0034a1b98d955559e62c"
+        },
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "book": {
+                "type": "string",
+                "example": "6639ebbb79e633c4ec91decb"
+              },
+              "quantity": {
+                "type": "number",
+                "example": 2
+              },
+              "_id": {
+                "type": "string",
+                "example": "663a12307ac4e25df4a9535e"
+              }
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2024-05-07T11:36:16.125+0000"
+        }
+      }
+    },
+    "Rendelés": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "663a127c7d01d713c47bad0a"
+        },
+        "user": {
+          "type": "string",
+          "example": "662d0034a1b98d955559e62c"
+        },
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "book": {
+                "type": "string",
+                "example": "6639ebbb79e633c4ec91decb"
+              },
+              "quantity": {
+                "type": "number",
+                "example": 2
+              },
+              "_id": {
+                "type": "string",
+                "example": "663a12307ac4e25df4a9535e"
+              }
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "2024-05-07T11:37:32.914+0000"
+        }
+      }
+    }
+  }
+}

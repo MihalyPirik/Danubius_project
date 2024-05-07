@@ -8,6 +8,8 @@ import { sendTokenResponse } from './authController.js';
 // @route  GET /api/user/:id
 // @access Private
 export const getUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Egy felhasználó lekérése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -28,6 +30,8 @@ export const getUser = async (req, res, next) => {
 // @route  GET /api/user/:id/books
 // @access Private
 export const getUserBooks = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó könyvei.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -54,6 +58,8 @@ export const getUserBooks = async (req, res, next) => {
 // @route  PUT /api/user/:id
 // @access Private
 export const updateUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó adatainak a módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -84,6 +90,8 @@ export const updateUser = async (req, res, next) => {
 // @route  PUT /api/user/password:id
 // @access Private
 export const updatePassword = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó jelszavának a módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -111,6 +119,8 @@ export const updatePassword = async (req, res, next) => {
 // @route  DELETE /api/user/:id
 // @access Private
 export const deleteUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó törlése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {

@@ -52,6 +52,7 @@ A főbb végpontokat és az azokhoz tartozó funkcionalitások:
 - `/api/user`: A felhasználó a saját adatait tudja kezelni.
 - `/api/user/basket`: A felhasználó kosara.
 - `/api/user/orders`: A felhasználó leadott rendelései.
+- `/api-docs`: Swagger API dokumentáció.
 
 ## 7. Tesztelés
 
@@ -80,6 +81,8 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - https://helmetjs.github.io
 - https://www.npmjs.com/package/express-rate-limit
 - https://expressjs.com/en/resources/middleware/cors.html
+- https://www.npmjs.com/package/swagger-ui-express
+- https://www.npmjs.com/package/swagger-autogen
 
 # A Projekt Indítása
 

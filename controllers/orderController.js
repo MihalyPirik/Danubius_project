@@ -7,6 +7,8 @@ import { tokenVerify } from './bookController.js';
 // @route  GET /api/user/orders/:id
 // @access Private
 export const getOrders = async (req, res, next) => {
+  // #swagger.tags = ['Rendelések']
+  // #swagger.summary = 'Rendelések megjelenítése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -28,6 +30,8 @@ export const getOrders = async (req, res, next) => {
 // @route  POST /api/user/orders/:id
 // @access Private
 export const createOrder = async (req, res, next) => {
+  // #swagger.tags = ['Rendelések']
+  // #swagger.summary = 'Rendelés létrehozása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -51,6 +55,8 @@ export const createOrder = async (req, res, next) => {
 // @route  PUT /api/orders/:id/:userId
 // @access Private
 export const updateOrder = async (req, res, next) => {
+  // #swagger.tags = ['Rendelések']
+  // #swagger.summary = 'Rendelés módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
@@ -79,6 +85,8 @@ export const updateOrder = async (req, res, next) => {
 // @route  DELETE /api/orders/:id
 // @access Private
 export const deleteOrder = async (req, res, next) => {
+  // #swagger.tags = ['Rendelések']
+  // #swagger.summary = 'Rendelés törlése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 

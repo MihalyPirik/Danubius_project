@@ -7,6 +7,8 @@ import mongoSanitize from 'express-mongo-sanitize';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger_output.json' assert { type: 'json' };
 
 import AuthRouter from './routes/authRoutes.js';
 import UserRouter from './routes/userRoutes.js';
@@ -41,17 +43,19 @@ const createApp = () => {
   app.use(limiter);
   app.use(cors());
 
-  app.use('/api/auth', AuthRouter);
-  app.use('/api/user', UserRouter);
-  app.use('/api/books', BookRouter);
-  app.use('/api/user/basket', BasketRouter);
-  app.use('/api/user/orders', OrderRouter);
+  app.use('/api', AuthRouter, UserRouter, BookRouter, BasketRouter, OrderRouter);
   app.use(errorHandler);
 
   return app;
 };
 
 const app = createApp();
+
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerFile)
+);
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Listening on port ${process.env.PORT || 3001}`);
 });

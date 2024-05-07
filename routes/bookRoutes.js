@@ -6,16 +6,16 @@ import { protect, authorize } from '../middlewares/auth.js';
 const BookRouter = Router();
 
 BookRouter
-  .route('/')
+  .route('/books/')
   .get(getBooks);
 
 BookRouter
-  .route('/:id')
+  .route('/books/:id')
   .get(getBook)
   .post(protect, authorize('publisher', 'admin'), createBook)
   .delete(protect, authorize('publisher', 'admin'), deleteBook);
 
 BookRouter
-  .route('/:id/:userId')
+  .route('/books/:id/:userId')
   .put(protect, authorize('publisher', 'admin'), updateBook)
 export default BookRouter;

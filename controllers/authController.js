@@ -6,6 +6,8 @@ import { tokenVerify } from './bookController.js';
 // @route  Post /api/auth/registration
 // @access Public
 export const createUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Új felhasználó regisztrálása.'
   try {
     const { name, email, password, role } = req.body;
 
@@ -25,6 +27,8 @@ export const createUser = async (req, res, next) => {
 // @route  Post /api/auth/login
 // @access Public
 export const loginUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó bejelentkezése.'
   try {
     const { email, password } = req.body;
 
@@ -53,6 +57,8 @@ export const loginUser = async (req, res, next) => {
 // @route  GET /api/auth/logout
 // @access Private
 export const logoutUser = async (req, res, next) => {
+  // #swagger.tags = ['Felhasználók']
+  // #swagger.summary = 'Felhasználó kijelentkezése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {

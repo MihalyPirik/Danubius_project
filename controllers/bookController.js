@@ -7,6 +7,8 @@ import { ErrorResponse } from '../utils/errorResponse.js';
 // @route  GET /api/books
 // @access Public
 export const getBooks = async (req, res, next) => {
+  // #swagger.tags = ['Könyvek']
+  // #swagger.summary = 'Könyvek megjelenítése.'
   try {
     let query;
     let queryString = JSON.stringify(req.query);
@@ -57,6 +59,8 @@ export const getBooks = async (req, res, next) => {
 // @route  GET /api/books/:id
 // @access Public
 export const getBook = async (req, res, next) => {
+  // #swagger.tags = ['Könyvek']
+  // #swagger.summary = 'Egy könyv megjelenítése.'
   try {
     const book = await BookModel.findById(req.params.id);
     if (!book) {
@@ -71,6 +75,8 @@ export const getBook = async (req, res, next) => {
 // @route  POST /api/books/:id
 // @access Private
 export const createBook = async (req, res, next) => {
+  // #swagger.tags = ['Könyvek']
+  // #swagger.summary = 'Könyv létrehozása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if ((req.body.user && req.body.user.toString() !== decoded.id) && req.user.role !== 'admin') {
@@ -89,6 +95,8 @@ export const createBook = async (req, res, next) => {
 // @route  PUT /api/books/:id/:userId
 // @access Private
 export const updateBook = async (req, res, next) => {
+  // #swagger.tags = ['Könyvek']
+  // #swagger.summary = 'Könyv módosítása.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
@@ -117,6 +125,8 @@ export const updateBook = async (req, res, next) => {
 // @route  DELETE /api/books/:id
 // @access Private
 export const deleteBook = async (req, res, next) => {
+  // #swagger.tags = ['Könyvek']
+  // #swagger.summary = 'Könyv törlése.'
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
