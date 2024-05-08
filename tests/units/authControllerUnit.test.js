@@ -32,7 +32,7 @@ describe('AuthController', () => {
 
             UserModel.create.mockResolvedValue(user);
 
-            await createUser(req, res, next)
+            await createUser(req, res, next);
 
             expect(res.status).toHaveBeenCalledWith(201);
             expect(res.json).toHaveBeenCalledWith({ success: true, token: 'fakeToken' });
