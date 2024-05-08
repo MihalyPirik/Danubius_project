@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Danubius",
     "collectionId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
-    "dateExported": "2024-05-07T08:54:00.068Z",
+    "dateExported": "2024-05-08T11:20:13.408Z",
     "version": "1.2",
     "folders": [
         {
@@ -77,7 +77,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-04-26T10:20:08.508Z",
-            "modified": "2024-05-07T08:48:47.603Z",
+            "modified": "2024-05-07T09:01:08.138Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -284,7 +284,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-04-26T10:25:18.696Z",
-            "modified": "2024-05-06T07:47:25.153Z",
+            "modified": "2024-05-07T14:22:16.395Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -311,11 +311,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "1952e368-bad4-4f17-a6b6-85b0c91efeed",
             "name": "putBook",
-            "url": "http://localhost:3000/api/books/662d0182a1b98d955559e649",
+            "url": "http://localhost:3000/api/books/663b55b827b5fd7f0c2b3ecd/6639eaed79e633c4ec91de9a",
             "method": "PUT",
             "sortNum": 20000,
             "created": "2024-04-26T10:25:52.459Z",
-            "modified": "2024-04-27T13:52:38.034Z",
+            "modified": "2024-05-08T10:40:51.610Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -333,12 +333,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450002\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
+                "raw": "{\n    \"author\": \"Sophie Johnson\",\n    \"title\": \"The Secret Island\",\n    \"ISBN\": \"9780123450008\",\n    \"publisher\": \"Publisher XYZ\",\n    \"publicationYear\": 2019,\n    \"amount\": 25,\n    \"price\": 1899\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNDIyNTkxNCwiZXhwIjoxNzE2ODE3OTE0fQ.sFD86Zqvg1Cao1rQP5gKRb-AlECHK8qUhfW39R9IXjY"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzllYWVkNzllNjMzYzRlYzkxZGU5YSIsImlhdCI6MTcxNTE1NzA3MSwiZXhwIjoxNzE3NzQ5MDcxfQ.JQty8JXJH2NYr2Zn5UvKOWMDp_k65zgIT0paQY1D1Ic"
             }
         },
         {
@@ -346,11 +346,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "182d86ae-db09-4c8d-bff6-64fb5d50f6fa",
             "name": "updateUser",
-            "url": "http://localhost:3000/api/user/662d0036a1b98d955559e62e",
+            "url": "http://localhost:3000/api/user/663b58230939c4245499718b",
             "method": "PUT",
             "sortNum": 20000,
             "created": "2024-04-26T14:39:22.299Z",
-            "modified": "2024-04-27T14:10:04.968Z",
+            "modified": "2024-05-08T10:55:19.890Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -368,7 +368,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n   \"name\" : \"misi\",\n    \"email\" : \"misi1@misi.hu\",\n    \"role\": \"admin\"\n}",
+                "raw": "{\n    \"name\" : \"misi\",\n    \"email\" : \"misi1@misi.hu\",\n    \"role\": \"admin\"\n}",
                 "form": []
             },
             "auth": {
@@ -415,7 +415,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-05-02T15:19:26.802Z",
-            "modified": "2024-05-07T08:29:30.814Z",
+            "modified": "2024-05-08T11:03:51.123Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -433,7 +433,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"_id\": \"662fb2cdd58e4b0a53565297\",\n   \"quantity\": 2\n}",
+                "raw": "{\n  \"_id\": \"6639ebbb79e633c4ec91decb\",\n  \"quantity\": 2\n}",
                 "form": []
             },
             "auth": {
@@ -641,11 +641,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
             "name": "PutUpdateOrder",
-            "url": "http://localhost:3000/api/user/orders/6639e592b8cb4890675a1861/662d0034a1b98d955559e62c",
+            "url": "http://localhost:3000/api/user/orders/663a127c7d01d713c47bad0a/662fb2e0d58e4b0a535652a5",
             "method": "PUT",
             "sortNum": 30000,
             "created": "2024-05-06T11:13:57.142Z",
-            "modified": "2024-05-07T08:37:13.243Z",
+            "modified": "2024-05-07T14:21:36.844Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -663,12 +663,12 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"books\" : [\n        {\n            \"book\" : \"662fb2c9d58e4b0a53565294\",\n            \"quantity\" : 2\n        },\n        {\n            \"book\" : \"662fb2cdd58e4b0a53565297\",\n            \"quantity\" : 0\n        }\n    ]\n}",
+                "raw": "{\n  \"books\" : [\n        {\n            \"book\" : \"6639ebbb79e633c4ec91decb\",\n            \"quantity\" : 1\n        }\n    ]\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA3MTAyNSwiZXhwIjoxNzE3NjYzMDI1fQ.HSkvtXqOio_NqU1fQSAJ-1HXKXDutAuclepsIsAEwWM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzllYWVkNzllNjMzYzRlYzkxZGU5YSIsImlhdCI6MTcxNTA5MTY4OCwiZXhwIjoxNzE3NjgzNjg4fQ.15mKoY7XiV0tqAPPTCLA1RL65sgswQcEkkAQBh-dMIM"
             }
         },
         {
@@ -711,11 +711,11 @@
             "colId": "af40da10-87f0-4354-b157-ac24e98ba6fe",
             "containerId": "14252e60-e697-4780-a658-4b42303cc46b",
             "name": "deleteOrder",
-            "url": "http://localhost:3000/api/user/orders/6639e592b8cb4890675a1861",
+            "url": "http://localhost:3000/api/user/orders/663a127c7d01d713c47bad0a",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-05-06T11:14:01.624Z",
-            "modified": "2024-05-07T08:37:51.577Z",
+            "modified": "2024-05-07T14:22:27.076Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -733,9 +733,9 @@
             ],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQwMDM0YTFiOThkOTU1NTU5ZTYyYyIsImlhdCI6MTcxNTA3MTAyNSwiZXhwIjoxNzE3NjYzMDI1fQ.HSkvtXqOio_NqU1fQSAJ-1HXKXDutAuclepsIsAEwWM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzllYWVkNzllNjMzYzRlYzkxZGU5YSIsImlhdCI6MTcxNTA5MTczNiwiZXhwIjoxNzE3NjgzNzM2fQ.git6WEvfh8R2wPK6-VRSmsgWGma7l8TvexSwqfvcC1M"
             }
         }
     ],
-    "ref": "06QlXYK2SUyNRvn_0AMguTOhQ6MNN_fmaKigtS1DesA4ukvcO4zIhwTgIsOWSctflIa1L7kMU6b2fJiS0xtGBw"
+    "ref": "06QlXYK2SUyNRvn_0AMgudfG6WX7sNRCzz_vCnDDkHSMozeVv0K6K2q-BRzJClGvFzWeYrOb1p-Z90atl641NQ"
 }

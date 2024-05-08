@@ -26,17 +26,8 @@
     }
   ],
   "schemes": [
-    "http",
-    "https"
+    "http"
   ],
-  "securityDefinitions": {
-    "BearerAuth": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "description": "Bearer token"
-    }
-  },
   "consumes": [
     "application/json"
   ],
@@ -59,18 +50,28 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "teszt"
                 },
                 "email": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "teszt@teszt.hu"
                 },
                 "role": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "user"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "12345678"
                 }
-              }
+              },
+              "required": [
+                "name",
+                "email",
+                "role",
+                "password"
+              ]
             }
           }
         ],
@@ -96,12 +97,18 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "teszt@teszt.hu"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "12345678"
                 }
-              }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
             }
           }
         ],
@@ -196,12 +203,23 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "misi"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "misi1@misi.hu"
+                },
+                "role": {
+                  "type": "string",
+                  "example": "admin"
                 }
-              }
+              },
+              "required": [
+                "name",
+                "email",
+                "role"
+              ]
             }
           }
         ],
@@ -299,12 +317,18 @@
               "type": "object",
               "properties": {
                 "currentPassword": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "12345678"
                 },
                 "newPassword": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "12345678"
                 }
-              }
+              },
+              "required": [
+                "currentPassword",
+                "newPassword"
+              ]
             }
           }
         ],
@@ -396,10 +420,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
+                "author": {
+                  "type": "string",
+                  "example": "Sophie Johnson"
+                },
+                "title": {
+                  "type": "string",
+                  "example": "The Secret Island"
+                },
+                "ISBN": {
+                  "type": "string",
+                  "example": "9780123450000"
+                },
+                "publisher": {
+                  "type": "string",
+                  "example": "Publisher XYZ"
+                },
+                "publicationYear": {
+                  "type": "number",
+                  "example": 2019
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 25
+                },
+                "price": {
+                  "type": "number",
+                  "example": 1899
                 }
-              }
+              },
+              "required": [
+                "author",
+                "title",
+                "ISBN",
+                "publisher",
+                "publicationYear",
+                "amount",
+                "price"
+              ]
             }
           }
         ],
@@ -472,10 +530,44 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
+                "author": {
+                  "type": "string",
+                  "example": "Sophie Johnson"
+                },
+                "title": {
+                  "type": "string",
+                  "example": "The Secret Island"
+                },
+                "ISBN": {
+                  "type": "string",
+                  "example": "9780123450000"
+                },
+                "publisher": {
+                  "type": "string",
+                  "example": "Publisher XYZ"
+                },
+                "publicationYear": {
+                  "type": "number",
+                  "example": 2019
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 25
+                },
+                "price": {
+                  "type": "number",
+                  "example": 1899
                 }
-              }
+              },
+              "required": [
+                "author",
+                "title",
+                "ISBN",
+                "publisher",
+                "publicationYear",
+                "amount",
+                "price"
+              ]
             }
           }
         ],
@@ -543,12 +635,18 @@
               "type": "object",
               "properties": {
                 "_id": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "6639ec0e79e633c4ec91dee3"
                 },
                 "quantity": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 2
                 }
-              }
+              },
+              "required": [
+                "_id",
+                "quantity"
+              ]
             }
           }
         ],
@@ -621,13 +719,35 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
-                },
                 "books": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "book": {
+                        "type": "string",
+                        "example": "662fb295d58e4b0a5356528d"
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 2
+                      },
+                      "_id": {
+                        "type": "string",
+                        "example": "6638830f5a43883a399fb8ce"
+                      }
+                    },
+                    "required": [
+                      "book",
+                      "quantity",
+                      "_id"
+                    ]
+                  }
                 }
-              }
+              },
+              "required": [
+                "books"
+              ]
             }
           }
         ],
@@ -670,16 +790,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
-                },
                 "_id": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "6639ec0e79e633c4ec91dee3"
                 },
                 "quantity": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 2
                 }
-              }
+              },
+              "required": [
+                "_id",
+                "quantity"
+              ]
             }
           }
         ],
@@ -745,14 +868,7 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "properties": {
-                "books": {
-                  "example": "any"
-                },
-                "user": {
-                  "example": "any"
-                }
-              }
+              "properties": {}
             }
           }
         ],
@@ -825,10 +941,30 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
-                  "example": "any"
+                "books": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "book": {
+                        "type": "string",
+                        "example": "662fb295d58e4b0a5356528d"
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 2
+                      }
+                    },
+                    "required": [
+                      "book",
+                      "quantity"
+                    ]
+                  }
                 }
-              }
+              },
+              "required": [
+                "books"
+              ]
             }
           }
         ],

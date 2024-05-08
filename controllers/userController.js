@@ -60,6 +60,14 @@ export const getUserBooks = async (req, res, next) => {
 export const updateUser = async (req, res, next) => {
   // #swagger.tags = ['Felhasználók']
   // #swagger.summary = 'Felhasználó adatainak a módosítása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $name: "misi",
+          $email: "misi1@misi.hu",
+          $role: "admin"
+      }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -92,6 +100,13 @@ export const updateUser = async (req, res, next) => {
 export const updatePassword = async (req, res, next) => {
   // #swagger.tags = ['Felhasználók']
   // #swagger.summary = 'Felhasználó jelszavának a módosítása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $currentPassword: "12345678",
+          $newPassword: "12345678"
+      }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {

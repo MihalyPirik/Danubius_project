@@ -19,7 +19,7 @@ const doc = {
   },
   host: 'localhost:3000',
   basePath: '/api',
-  schemes: ['http', 'https'],
+  schemes: ['http'],
   consumes: ['application/json'],
   produces: ['application/json'],
   tags: [
@@ -40,14 +40,6 @@ const doc = {
       'description': 'A rendelések kezelése'
     }
   ],
-  securityDefinitions: {
-    BearerAuth: {
-      type: 'apiKey',
-      name: 'Authorization',
-      in: 'header',
-      description: 'Bearer token'
-    }
-  },
   definitions: {
     Könyv: {
       _id: '6639ebbb79e633c4ec91decb',
@@ -70,28 +62,28 @@ const doc = {
       createdAt: '2024-04-29T14:46:56.196+0000'
     },
     Kosár: {
-      _id: "663a12307ac4e25df4a9535d",
-      user: "662d0034a1b98d955559e62c",
+      _id: '663a12307ac4e25df4a9535d',
+      user: '662d0034a1b98d955559e62c',
       books: [
         {
-          book: "6639ebbb79e633c4ec91decb",
+          book: '6639ebbb79e633c4ec91decb',
           quantity: 2,
-          _id: "663a12307ac4e25df4a9535e"
+          _id: '663a12307ac4e25df4a9535e'
         }
       ],
-      createdAt: "2024-05-07T11:36:16.125+0000"
+      createdAt: '2024-05-07T11:36:16.125+0000'
     },
     Rendelés: {
-      _id: "663a127c7d01d713c47bad0a",
-      user: "662d0034a1b98d955559e62c",
+      _id: '663a127c7d01d713c47bad0a',
+      user: '662d0034a1b98d955559e62c',
       books: [
         {
-          book: "6639ebbb79e633c4ec91decb",
+          book: '6639ebbb79e633c4ec91decb',
           quantity: 2,
-          _id: "663a12307ac4e25df4a9535e"
+          _id: '663a12307ac4e25df4a9535e'
         }
       ],
-      createdAt: "2024-05-07T11:37:32.914+0000"
+      createdAt: '2024-05-07T11:37:32.914+0000'
     }
   }
 };

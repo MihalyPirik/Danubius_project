@@ -83,6 +83,7 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - https://expressjs.com/en/resources/middleware/cors.html
 - https://www.npmjs.com/package/swagger-ui-express
 - https://www.npmjs.com/package/swagger-autogen
+- https://swagger-autogen.github.io/docs
 
 # A Projekt Indítása
 

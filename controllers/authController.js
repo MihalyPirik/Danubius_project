@@ -8,6 +8,15 @@ import { tokenVerify } from './bookController.js';
 export const createUser = async (req, res, next) => {
   // #swagger.tags = ['Felhasználók']
   // #swagger.summary = 'Új felhasználó regisztrálása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $name: "teszt",
+          $email: "teszt@teszt.hu",
+          $role: "user",
+          $password: "12345678"
+      }
+  } */
   try {
     const { name, email, password, role } = req.body;
 
@@ -29,6 +38,13 @@ export const createUser = async (req, res, next) => {
 export const loginUser = async (req, res, next) => {
   // #swagger.tags = ['Felhasználók']
   // #swagger.summary = 'Felhasználó bejelentkezése.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $email: "teszt@teszt.hu",
+          $password: "12345678"
+      }
+  } */
   try {
     const { email, password } = req.body;
 

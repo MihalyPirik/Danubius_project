@@ -32,6 +32,11 @@ export const getOrders = async (req, res, next) => {
 export const createOrder = async (req, res, next) => {
   // #swagger.tags = ['Rendelések']
   // #swagger.summary = 'Rendelés létrehozása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+        }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -57,15 +62,21 @@ export const createOrder = async (req, res, next) => {
 export const updateOrder = async (req, res, next) => {
   // #swagger.tags = ['Rendelések']
   // #swagger.summary = 'Rendelés módosítása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $books: [
+            {
+              $book: "662fb295d58e4b0a5356528d",
+              $quantity: 2
+            }
+          ]
+        }
+  } */
   try {
-    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
-
     req.body.user = req.params.userId;
 
-    const orderUser = await OrderModel.findById(req.params.id)
-    if (orderUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
-      return next(new ErrorResponse('Csak a rendelés tulajdonosa frissítheti a rendelést!', 401));
-    };
+    const orderUser = await OrderModel.findById(req.params.id);
 
     if (!orderUser) {
       return next(new ErrorResponse('Nincs ilyen rendelés!', 400));
@@ -88,15 +99,9 @@ export const deleteOrder = async (req, res, next) => {
   // #swagger.tags = ['Rendelések']
   // #swagger.summary = 'Rendelés törlése.'
   try {
-    const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
-
     const orderUser = await OrderModel.findById(req.params.id)
     if (!orderUser) {
       return next(new ErrorResponse('Nincs ilyen rendelés!', 400));
-    };
-
-    if (orderUser.user.toString() !== decoded.id && req.user.role !== 'admin') {
-      return next(new ErrorResponse('Csak a rendelés tulajdonosa törölheti a rendelést!', 401));
     };
 
     await OrderModel.findByIdAndDelete(req.params.id);

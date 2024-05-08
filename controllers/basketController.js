@@ -37,6 +37,13 @@ export const getBasket = async (req, res, next) => {
 export const createBasket = async (req, res, next) => {
   // #swagger.tags = ['Kosár']
   // #swagger.summary = 'Kosár létrehozása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $_id: "6639ec0e79e633c4ec91dee3",
+          $quantity: 2
+      }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
     if (req.params.id !== decoded.id && req.user.role !== 'admin') {
@@ -77,6 +84,18 @@ export const createBasket = async (req, res, next) => {
 export const putUpdateBasket = async (req, res, next) => {
   // #swagger.tags = ['Kosár']
   // #swagger.summary = 'Kosár módosítása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $books: [
+            {
+              $book: "662fb295d58e4b0a5356528d",
+              $quantity: 2,
+              $_id: "6638830f5a43883a399fb8ce"
+            }
+          ]
+        }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
@@ -118,6 +137,13 @@ export const putUpdateBasket = async (req, res, next) => {
 export const patchUpdateBasket = async (req, res, next) => {
   // #swagger.tags = ['Kosár']
   // #swagger.summary = 'Kosár módosítása.'
+  /*  #swagger.parameters['body'] = {
+      in: 'body',
+        schema: { 
+          $_id: "6639ec0e79e633c4ec91dee3",
+          $quantity: 2
+      }
+  } */
   try {
     const decoded = tokenVerify(req.headers.authorization.split(' ')[1]);
 
