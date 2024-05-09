@@ -84,6 +84,7 @@ Az alkalmazás egységtesztekkel, illetve integrációs tesztekkel lesz ellátva
 - https://www.npmjs.com/package/swagger-ui-express
 - https://www.npmjs.com/package/swagger-autogen
 - https://swagger-autogen.github.io/docs
+- https://www.passportjs.org/packages/passport-discord
 
 # A Projekt Indítása
 

@@ -9,6 +9,9 @@ import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerFile from './swagger_output.json' assert { type: 'json' };
+import passport from 'passport';
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
 
 import AuthRouter from './routes/authRoutes.js';
 import UserRouter from './routes/userRoutes.js';
@@ -16,6 +19,7 @@ import BookRouter from './routes/bookRoutes.js';
 import BasketRouter from './routes/basketRoutes.js';
 import OrderRouter from './routes/orderRoutes.js';
 import { errorHandler } from './middlewares/error.js';
+import './strategies/discord-strategy.js';
 
 dotenv.config();
 
@@ -36,6 +40,19 @@ const createApp = () => {
 
   app.use(express.json());
   app.use(cookieParser());
+  app.use(session({
+    secret: 'test',
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+      maxAge: 12 * 60 * 60 * 1000,
+    },
+    store: MongoStore.create({
+      client: mongoose.connection.getClient(),
+    })
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(morgan('dev'));
   app.use(mongoSanitize());
   app.use(helmet({ crossOriginResourcePolicy: false }));
@@ -44,6 +61,14 @@ const createApp = () => {
   app.use(cors());
 
   app.use('/api', AuthRouter, UserRouter, BookRouter, BasketRouter, OrderRouter);
+  app.get('/api/auth/discord', passport.authenticate('discord'));
+  app.get('/api/auth/discord/redirect', passport.authenticate('discord'),
+    (req, res) => {
+      res.status(200).json({
+        success: true,
+        token: req.user.getSignedToken()
+      });
+    });
   app.use(errorHandler);
 
   return app;
