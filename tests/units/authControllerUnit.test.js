@@ -6,7 +6,7 @@ jest.mock('../../models/UserModel.js');
 describe('AuthController', () => {
     let req, res, next;
 
-    beforeEach(() => {
+    beforeEach(() => { // alapértelmezett értéket állít be
         req = {
             body: {}
         };
@@ -18,7 +18,7 @@ describe('AuthController', () => {
     });
 
     afterEach(() => {
-        jest.clearAllMocks();
+        jest.clearAllMocks(); // megtisztítja a mock függvényeket
     });
     describe('POST /api/auth/registration', () => {
         it('should create a new user with valid data', async () => {

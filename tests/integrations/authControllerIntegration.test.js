@@ -32,6 +32,7 @@ describe('App', () => {
                         password: '12345678'
                     });
                     expect(response.statusCode).toBe(200);
+                    expect(response.body.token).toBeDefined();
                 });
                 it('should handle login with incorrect credentials and return 401', async () => {
                     const response = await supertest(app).post('/api/auth/login').send({

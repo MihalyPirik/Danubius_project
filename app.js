@@ -23,7 +23,7 @@ import './strategies/discord-strategy.js';
 
 dotenv.config();
 
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', true); // csak a schema szerinti lekérdezéseket támogatja
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
 const database = mongoose.connection;
@@ -41,11 +41,11 @@ const createApp = () => {
   app.use(express.json());
   app.use(cookieParser());
   app.use(session({
-    secret: 'test',
-    saveUninitialized: true,
-    resave: true,
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false,
     cookie: {
-      maxAge: 12 * 60 * 60 * 1000,
+      maxAge: 1 * 60 * 60 * 1000,
     },
     store: MongoStore.create({
       client: mongoose.connection.getClient(),

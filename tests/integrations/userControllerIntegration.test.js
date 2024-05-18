@@ -2,7 +2,7 @@ import supertest from 'supertest';
 
 import createApp from '../../app';
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzllYWVkNzllNjMzYzRlYzkxZGU5YSIsImlhdCI6MTcxNTI0NjM5MSwiZXhwIjoxNzE3ODM4MzkxfQ.zb4IlmM7Qd20bjX_knz3v1YCpKSyDoL-bJLLZ37wkpI';
+const token = 'Bearer token';
 
 describe('App', () => {
   let app;

@@ -85,6 +85,7 @@ export const logoutUser = async (req, res, next) => {
       expires: new Date(Date.now() + 10 * 1000),
       httpOnly: true
     });
+
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     res.status(400).json({ success: false, msg: error.message });
